@@ -6,14 +6,92 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	</h:head>
 	<h:body>
-	<p>Hello World</p>
-		<!-- <h:form>
-			<h:inputText value="#{navigator.name}" />
-			<h:selectOneRadio value="#{navigator.disabled}" >
-				<f:selectItem itemValue="true" itemLabel="Disabled" />
-				<f:selectItem itemValue="false" itemLabel="Enabled" />
-			</h:selectOneRadio>
-			<h:commandButton value="Say Hello" action="result" />
-		</h:form> -->
+
+
+<!-- Menu
+	0 - Menu principal  -->
+	<div>
+		<h1>Bem vindo ao Productdb</h1>
+		
+		<h:form>
+
+			<h:panelGrid columns="3">
+	
+				<p> Por favor selecione uma das seguints opcoes</p>
+				<button>produtos </button>
+				<button>parteleiras</button>
+				<br />
+				<button>exit</button>
+				
+			</h:panelGrid>
+			
+		</h:form>
+		
+	</div>
+	
+	
+<!-- Produto
+	1 - Menu principal produto -->
+	<div>
+	
+		<h1> Produtos </h1>
+		
+				<p> Por favor selecione uma das seguints opcoes</p>
+				<button>Novo Produto </button>
+				<br />
+				<button>Editar um Produto existente</button>
+				<br />
+				<button>Consultar os detalhes de um produto </button>
+				<br />
+				<button>Remover um produto </button>
+				<br />
+				<button>Voltar ao ecra anterior </button>
+	
+	</div>
+	
+<!-- 	1.1 - Inserir detalhes do produto --> 
+	<div>
+		
+		<h1>Insira os detalhes do Produto</h1>
+			
+			<h:form>
+
+			<h:panelGrid columns="2">
+	
+				Parteleiras onde está exposto <h:inputText/>
+				Desconto <h:inputText/>
+				IVA <h:inputText/>
+				PVP <h:inputText/>
+				
+			</h:panelGrid>
+			
+			</h:form>
+		
+		
+		<button> Gravar </button>
+		<button> Sair </button>
+	</div>
+
+
+
+<!-- Produto
+	2 - Menu principal parteleira -->	
+	<div>
+	
+		<h1> Parteleiras </h1>
+		
+				<p> Por favor selecione uma das seguints opcoes</p>
+				<button>Nova Parteleira </button>
+				<br />
+				<button>Editar uma Parteleira existente</button>
+				<br />
+				<button>Consultar os detalhes de uma Parteleira </button>
+				<br />
+				<button>Remover uma Parteleira </button>
+				<br />
+				<button>Voltar ao ecra anterior </button>
+	
+	</div>
+	
 	</h:body>
 </html>
