@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	</h:head>
@@ -36,20 +37,36 @@
 	
 		<h1> Produtos </h1>
 		
-				<p> Por favor selecione uma das seguints opcoes</p>
-				<button>Novo Produto </button>
-				<br />
-				<button>Editar um Produto existente</button>
-				<br />
-				<button>Consultar os detalhes de um produto </button>
-				<br />
-				<button>Remover um produto </button>
-				<br />
-				<button>Voltar ao ecra anterior </button>
+<!-- 		1.1 - tabela dos produtos -->
+			<p:dataTable value="#{productView.product}" var="p" border="1">
+				
+				<p:column headerText>#{p.idProd}</p:column>
+				<p:column headerText="Id">#{p.pratIdLoc}</p:column>
+				<p:column headerText="Discount">#{p.desconto}</p:column>
+				<p:column headerText="IVA">#{p.iva}</p:column>
+				<p:column headerText="PVP">#{p.pvp}</p:column>
+				<p:column>
+					<button>Editar </button>
+					<button>Ver Detalhes</button>
+					<button>Eliminar </button>
+				</p:column>
+	
+			</p:dataTable>>
+	
+			<p> Por favor selecione uma das seguintes opcoes</p>
+			<button>Novo Produto </button>
+			<br />
+			<button>Editar um Produto existente</button>
+			<br />
+			<button>Consultar os detalhes de um produto </button>
+			<br />
+			<button>Remover um produto </button>
+			<br />
+			<button>Voltar ao ecra anterior </button>
 	
 	</div>
 	
-<!-- 	1.1 - Inserir detalhes do produto --> 
+<!-- 	1.2 - Inserir detalhes do produto --> 
 	<div>
 		
 		<h1>Insira os detalhes do Produto</h1>
@@ -58,10 +75,17 @@
 
 			<h:panelGrid columns="2">
 	
-				Parteleiras onde está exposto <h:inputText/>
-				Desconto <h:inputText/>
-				IVA <h:inputText/>
-				PVP <h:inputText/>
+				Parteleiras onde está exposto 
+				<h:inputText value="#{productrepository.product.pratIdLoc}"/>
+				Desconto 
+				<h:inputText value="#{productrepository.product.desconto}"/>
+				IVA 
+				<h:inputText value="#{productrepository.product.iva}"/>
+				PVP 
+				<h:inputText value="#{productrepository.product.pvp}"/>
+				<br/>
+				<h:commandButton value = "Save" action="#{productrepository.addProd}"/>
+				<!-- <h:commandButton value = "Cancel" action="#{productrepository.ReturnProdMenu}"/> -->
 				
 			</h:panelGrid>
 			

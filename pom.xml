@@ -9,12 +9,22 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<dependencies>
+	
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.1</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>JSF_DEMO</finalName>
@@ -28,4 +38,4 @@
 	        </plugin>
     	</plugins>
 	</build>
-</project>
+</project> 
