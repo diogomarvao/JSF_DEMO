@@ -3,7 +3,10 @@ package io.altar.jeeproject.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.inject.Named;
+
 import io.altar.jeeproject.repository.ProductRepository;
+
 
 public class Product extends Entity{
 	

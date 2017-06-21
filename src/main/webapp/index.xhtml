@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	</h:head>
@@ -11,111 +13,120 @@
 
 <!-- Menu
 	0 - Menu principal  -->
-	<div>
-		<h1>Bem vindo ao Productdb</h1>
+<!-- 		<h1>Bem vindo ao Productdb</h1>
 		
 		<h:form>
 
 			<h:panelGrid columns="3">
 	
-				<p> Por favor selecione uma das seguints opcoes</p>
+				<p> Por favor selecione uma das seguintes opcoes</p>
 				<button>produtos </button>
-				<button>parteleiras</button>
+				<button>prateleiras</button>
 				<br />
 				<button>exit</button>
 				
 			</h:panelGrid>
 			
 		</h:form>
-		
-	</div>
+ -->
 	
 	
-<!-- Produto
-	1 - Menu principal produto -->
-	<div>
+<!-- Produto-->
 	
-		<h1> Produtos </h1>
-		
-<!-- 		1.1 - tabela dos produtos -->
-			<p:dataTable value="#{productView.product}" var="p" border="1">
-				
-				<p:column headerText>#{p.idProd}</p:column>
-				<p:column headerText="Id">#{p.pratIdLoc}</p:column>
-				<p:column headerText="Discount">#{p.desconto}</p:column>
-				<p:column headerText="IVA">#{p.iva}</p:column>
-				<p:column headerText="PVP">#{p.pvp}</p:column>
-				<p:column>
-					<button>Editar </button>
-					<button>Ver Detalhes</button>
-					<button>Eliminar </button>
-				</p:column>
-	
-			</p:dataTable>>
-	
-			<p> Por favor selecione uma das seguintes opcoes</p>
-			<button>Novo Produto </button>
-			<br />
-			<button>Editar um Produto existente</button>
-			<br />
-			<button>Consultar os detalhes de um produto </button>
-			<br />
-			<button>Remover um produto </button>
-			<br />
-			<button>Voltar ao ecra anterior </button>
-	
-	</div>
-	
-<!-- 	1.2 - Inserir detalhes do produto --> 
-	<div>
-		
-		<h1>Insira os detalhes do Produto</h1>
+	<ui:composition template="CommonLayout.xhtml">
+	<!-- 1 - Menu principal produto -->
+		<ui:define name="content">		
+			<h1> Produtos </h1>
 			
-			<h:form>
-
-			<h:panelGrid columns="2">
+	<!-- 		1.1 - tabela dos produtos -->
+				<p:dataTable value="#{productview.product}" var="p" border="1">
+					
+					<!-- <p:column headerText>#{p.idProd}</p:column> -->
+					<p:column headerText="Id">#{p.pratIdLoc}</p:column>
+					<p:column headerText="Discount">#{p.desconto}</p:column>
+					<p:column headerText="IVA">#{p.iva}</p:column>
+					<p:column headerText="PVP">#{p.pvp}</p:column>
+					<p:column>
+						<button>Editar </button>
+						<button>Ver Detalhes</button>
+						<button>Eliminar </button>
+					</p:column>
+		
+				</p:dataTable>
 	
-				Parteleiras onde está exposto 
-				<h:inputText value="#{productrepository.product.pratIdLoc}"/>
-				Desconto 
-				<h:inputText value="#{productrepository.product.desconto}"/>
-				IVA 
-				<h:inputText value="#{productrepository.product.iva}"/>
-				PVP 
-				<h:inputText value="#{productrepository.product.pvp}"/>
-				<br/>
-				<h:commandButton value = "Save" action="#{productrepository.addProd}"/>
-				<!-- <h:commandButton value = "Cancel" action="#{productrepository.ReturnProdMenu}"/> -->
+	<!-- 	1.2 - Inserir detalhes do produto --> 
+	
+			<h1>Insira os detalhes do Produto</h1>
 				
-			</h:panelGrid>
+				<h:form>
+	
+					<h:panelGrid columns="2">
 			
-			</h:form>
-		
-		
-		<button> Gravar </button>
-		<button> Sair </button>
-	</div>
-
-
-
-<!-- Produto
-	2 - Menu principal parteleira -->	
-	<div>
+						Prateleiras onde está exposto 
+						<h:inputText value="#{productview.product.pratIdLoc}"/>
+						Desconto 
+						<h:inputText value="#{productview.product.desconto}"/>
+						IVA 
+						<h:inputText value="#{productview.product.iva}"/>
+						PVP 
+						<h:inputText value="#{productview.product.pvp}"/>
+						<br/>
+						
+						
+					</h:panelGrid>
+				
+				</h:form>
+			
+						<h:commandButton value = "Save" action="#{productview.addProd()}"/>
+						<h:commandButton value = "Cancel"/> 
 	
-		<h1> Parteleiras </h1>
+	<!-- Prateleiras
+		1 - Menu principal produto -->
+			<h1> Prateleiras </h1>
+			
+	<!-- 		1.1 - tabela dos prateleiras -->
+				<p:dataTable value="#{shelfView.shelfs}" var="s" border="1">
+					
+			<!-- 		<p:column headerText="gfs">#{s.idShelf}</p:column> -->
+					<p:column headerText="Id">#{s.codigo}</p:column>
+					<p:column headerText="Discount">#{s.capacidade}</p:column>
+					<p:column headerText="IVA">#{s.produto}</p:column>
+					<p:column headerText="PVP">#{s.preco}</p:column>
+					<p:column>
+						<button>Editar </button>
+						<button>Ver Detalhes</button>
+						<button>Eliminar </button>
+					</p:column>
 		
-				<p> Por favor selecione uma das seguints opcoes</p>
-				<button>Nova Parteleira </button>
-				<br />
-				<button>Editar uma Parteleira existente</button>
-				<br />
-				<button>Consultar os detalhes de uma Parteleira </button>
-				<br />
-				<button>Remover uma Parteleira </button>
-				<br />
-				<button>Voltar ao ecra anterior </button>
+				</p:dataTable>
 	
-	</div>
+	<!-- 	1.2 - Inserir detalhes do produto --> 
 	
+			<h1>Insira os detalhes da Prateleira</h1>
+				
+				<h:form>
+	
+					<h:panelGrid columns="2">
+			
+						Localizacao da Prateleira 
+						<h:inputText value="#{shelfrepository.shelf.codigo}"/>
+						Capacidade 
+						<h:inputText value="#{shelfrepository.shelf.capacidade}"/>
+						Produto Disponivel
+						<h:inputText value="#{shelfrepository.shelf.produto}"/>
+						Preco de Aluger
+						<h:inputText value="#{shelfrepository.shelf.preco}"/>
+						<br/>
+						
+						
+					</h:panelGrid>
+				
+				</h:form>
+			
+						<h:commandButton value = "Save" action="#{shelfView.addShelf}"/>
+						<h:commandButton value = "Cancel"/> 
+
+			</ui:define>
+		</ui:composition>
 	</h:body>
 </html>

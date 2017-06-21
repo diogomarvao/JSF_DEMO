@@ -16,10 +16,10 @@ public class ProductRepository extends EntityRepository<Product>{
 	public ProductRepository() {}
 	
 	public static void alterProdElement(int id,ArrayList<Integer> pratIdLoc, double desconto, int iva, double pvp) {
-		((Product) get(id)).setPratIdLoc(pratIdLoc);
-		((Product) get(id)).setDesconto(desconto);
-		((Product) get(id)).setIva(iva);
-		((Product) get(id)).setPvp(pvp);
+//		((Product) get(id)).setPratIdLoc(pratIdLoc);
+//		((Product) get(id)).setDesconto(desconto);
+//		((Product) get(id)).setIva(iva);
+//		((Product) get(id)).setPvp(pvp);
 	}	
 		
 }
