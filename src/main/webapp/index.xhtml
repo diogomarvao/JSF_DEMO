@@ -11,31 +11,40 @@
 	<h:body>
 
 
-<!-- Menu
-	0 - Menu principal  -->
-<!-- 		<h1>Bem vindo ao Productdb</h1>
-		
-		<h:form>
-
-			<h:panelGrid columns="3">
-	
-				<p> Por favor selecione uma das seguintes opcoes</p>
-				<button>produtos </button>
-				<button>prateleiras</button>
-				<br />
-				<button>exit</button>
-				
-			</h:panelGrid>
-			
-		</h:form>
- -->
-	
-	
 <!-- Produto-->
 	
-	<ui:composition template="CommonLayout.xhtml">
+<ui:composition template="CommonLayout.xhtml">
+
+	<div id="homepage">
+	<ui:define name="content">	
+	
+		
+<!-- Menu
+	0 - Menu principal  -->
+		<h1>Bem vindo ao Productdb</h1>
+		
+			<h:form>
+
+				<h:panelGrid columns="3">
+		
+					<p> Por favor selecione uma das seguintes opcoes</p>
+					<h:commandButton value = "Productos" action="prodMenu"/>
+					<h:commandButton value = "Prateleiras"/> 
+				
+					<br />
+					<button>exit</button>
+					
+				</h:panelGrid>
+				
+			</h:form>
+		
+	</ui:define>
+</div>
+		
 	<!-- 1 - Menu principal produto -->
-		<ui:define name="content">		
+		<div id="prodMenu">
+	<ui:define name="content">	
+		
 			<h1> Produtos </h1>
 			
 	<!-- 		1.1 - tabela dos produtos -->
@@ -80,6 +89,12 @@
 						<h:commandButton value = "Save" action="#{productview.addProd()}"/>
 						<h:commandButton value = "Cancel"/> 
 	
+	</ui:define>
+		</div>	
+		
+	<div id="shelfMenu">
+	<ui:define name="content">	
+		
 	<!-- Prateleiras
 		1 - Menu principal produto -->
 			<h1> Prateleiras </h1>
@@ -125,8 +140,10 @@
 			
 						<h:commandButton value = "Save" action="#{shelfView.addShelf}"/>
 						<h:commandButton value = "Cancel"/> 
-
+				
 			</ui:define>
+			</div>
+			
 		</ui:composition>
 	</h:body>
 </html>
