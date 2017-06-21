@@ -74,11 +74,11 @@
 						Prateleiras onde está exposto 
 						<h:inputText value="#{productview.product.pratIdLoc}"/>
 						Desconto 
-						<h:inputText value="#{productview.product.desconto}"/>
+						<h:inputText value="#{productview.product.desconto}" required="true"/>
 						IVA 
-						<h:inputText value="#{productview.product.iva}"/>
+						<h:inputText value="#{productview.product.iva}" required="true"/>
 						PVP 
-						<h:inputText value="#{productview.product.pvp}"/>
+						<h:inputText value="#{productview.product.pvp}" required="true"/>
 						<br/>
 						
 						
@@ -124,13 +124,13 @@
 					<h:panelGrid columns="2">
 			
 						Localizacao da Prateleira 
-						<h:inputText value="#{shelfrepository.shelf.codigo}"/>
+						<h:inputText value="#{shelfrepository.shelf.codigo}" required="true"/>
 						Capacidade 
-						<h:inputText value="#{shelfrepository.shelf.capacidade}"/>
+						<h:inputText value="#{shelfrepository.shelf.capacidade}" required="true"/>
 						Produto Disponivel
 						<h:inputText value="#{shelfrepository.shelf.produto}"/>
 						Preco de Aluger
-						<h:inputText value="#{shelfrepository.shelf.preco}"/>
+						<h:inputText value="#{shelfrepository.shelf.preco}" required="true"/>
 						<br/>
 						
 						
@@ -139,7 +139,7 @@
 				</h:form>
 			
 						<h:commandButton value = "Save" action="#{shelfView.addShelf}"/>
-						<h:commandButton value = "Cancel"/> 
+						<h:commandButton value = "Cancel" action="homepage"/> 
 				
 			</ui:define>
 			</div>
