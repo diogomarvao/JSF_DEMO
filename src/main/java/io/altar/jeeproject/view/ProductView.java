@@ -17,15 +17,26 @@ import io.altar.jeeproject.model.Product;
 
 public class ProductView implements Serializable{
 	
-
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
 	private Product product;
 	
-	private List <Product> products = new ArrayList<>();
+	private static List <Product> products = new ArrayList<>();
+	
+	static{
+		products.add(new Product());
+	}
 
 	public String addProd(){
 		products.add(product);
+		clear();
 		
 		return null;
+	}
+	
+	private void clear(){
+		product = new Product();
 	}
 	
 	public Product getProduct() {

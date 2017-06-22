@@ -17,32 +17,44 @@ import io.altar.jeeproject.model.Shelf;
 
 public class ShelfView implements Serializable{
 		
-
-		private Shelf shelf;
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private Shelf shelf;
+	
+	private static List <Shelf> shelfs = new ArrayList<>();
+	
+	static{
+		shelfs.add(new Shelf());
+	}
+	
+	
+	public String addShelf(){
+		shelfs.add(shelf);
+		clear();
 		
-		private List <Shelf> shelfs = new ArrayList<>();
-		
-		public String addShelf(){
-			shelfs.add(shelf);
-			
-			return null;
-		}
-		
-		public Shelf getShelf() {
-			return shelf;
-		}
+		return null;
+	}
+	
+	private void clear(){
+		shelf = new Shelf();
+	}
+	
+	public Shelf getShelf() {
+		return shelf;
+	}
 
-		public void setShelf(Shelf shelf) {
-			this.shelf = shelf;
-		}
+	public void setShelf(Shelf shelf) {
+		this.shelf = shelf;
+	}
 
-		public List<Shelf> getShelfs() {
-			return shelfs;
-		}
+	public List<Shelf> getShelfs() {
+		return shelfs;
+	}
 
-		public void setShelfs(List<Shelf> shelfs) {
-			this.shelfs = shelfs;
-		}
+	public void setShelfs(List<Shelf> shelfs) {
+		this.shelfs = shelfs;
+	}
 
 		
 }

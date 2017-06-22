@@ -3,19 +3,26 @@ package io.altar.jeeproject.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.altar.jeeproject.repository.ProductRepository;
+import io.altar.jeeproject.view.ProductView;
 
 
-public class Product extends Entity{
+@Named
+@SessionScoped
+public class Product extends Entity implements Serializable{
+	ProductView view = new ProductView();
 	
 	private ArrayList<Integer> pratIdLoc= new ArrayList<>();
 	private double desconto;
 	private int iva;
 	private double pvp;
-	private ProductRepository productRepository = new ProductRepository();
+	private ProductRepository productRepository;
 	
+	private static final long serialVersionUID = 1L;
 	
 	public ArrayList<Integer> getPratIdLoc() {
 		return pratIdLoc;
@@ -42,15 +49,20 @@ public class Product extends Entity{
 		this.pvp = pvp;
 	}	
 	
-//  adicionar a parteleira criada ao repositorio shelfRepository
+	@Inject
+	public Product(){
+		
+	}
+	
+// adicionar a parteleira criada ao repositorio shelfRepository
 
-		public Product(ArrayList<Integer> pratIdLoc, double desconto, int iva, double pvp) {
-			this.pratIdLoc = pratIdLoc;
-			this.desconto = desconto;
-			this.iva = iva;
-			this.pvp = pvp;
-			productRepository.addToList(this);
-		}
+	public void addProd(ArrayList<Integer> pratIdLoc, double desconto, int iva, double pvp) {
+		this.pratIdLoc = pratIdLoc;
+		this.desconto = desconto;
+		this.iva = iva;
+		this.pvp = pvp;
+		view.getProducts().add(this);
+}
 	
 }
 		
