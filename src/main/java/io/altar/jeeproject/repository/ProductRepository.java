@@ -14,13 +14,16 @@ import io.altar.jeeproject.repository.ProductRepository;
 
 public class ProductRepository extends EntityRepository<Product>{
 
-//private static final ProductRepository INSTANCE = new ProductRepository();
+private static final ProductRepository INSTANCE = new ProductRepository();
 	
 	private ProductRepository(){}
 	
-//	public static ProductRepository getInstance(){
-//		return INSTANCE;
-//	}
+	public static ProductRepository getInstance(){
+		return INSTANCE;
+	}
+	
+	
+//	editar valores
 	
 	public void alterProdElement(int id,ArrayList<Integer> pratIdLoc, double desconto, int iva, double pvp) {
 		((Product) get(id)).setPratIdLoc(pratIdLoc);
@@ -45,5 +48,5 @@ public class ProductRepository extends EntityRepository<Product>{
 //		
 //		}
 //		
-	}
+//	}
 }

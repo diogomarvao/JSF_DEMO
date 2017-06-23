@@ -1,17 +1,10 @@
 h1{
+	dislay:block;
 	color: red;
+	background-color: gray;
+	
+
 }
 
-#homepage{
-	display:block;
-}
 
-
-#produtos{
-	display:hidden;
-}
-
-#prateleiras{
-	display:hidden;
-}
 

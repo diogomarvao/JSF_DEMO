@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,6 +18,11 @@ public class ProductView implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	ArrayList<Integer> pratIdLoc;
+	double desconto;
+	int iva;
+	double pvp;
+	
 	@Inject
 	private Product product;
 	
@@ -29,9 +33,9 @@ public class ProductView implements Serializable{
 	}
 
 	public String addProd(){
+		Product product = new Product();
+		product.addProd(this.pratIdLoc,this.desconto,this.iva,this.pvp);
 		products.add(product);
-		clear();
-		
 		return null;
 	}
 	

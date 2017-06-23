@@ -5,148 +5,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
-	<h:head>
-		<title> Product db </title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-	</h:head>
-	<h:body>
+<h:head>
+	<title>Product db</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
 
 
-<!-- Produto-->
-	
-<ui:composition template="CommonLayout.xhtml">
-	<h:outputStylesheet library = "css" name = "style.css"></h:outputStylesheet>
-	<ui:define name="content">	
-	
-	
-		
-<!-- Menu
+	<!-- Produto-->
+
+	<ui:composition template="CommonLayout.xhtml">
+		<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+		<ui:define name="content">
+
+
+
+			<!-- Menu
 	0 - Menu principal  -->
-	<div id="homepage" class="ui-g-12 ui-md-6 ui-lg-3">
-		<h1>Bem vindo ao Productdb</h1>
-		
-			<h:form>
+			<div id="homepage" class="ui-g-12 ui-md-6 ui-lg-3">
+				<h1>Bem vindo ao Productdb</h1>
 
-				<h:panelGrid columns="3">
-		
-					<p> Por favor selecione uma das seguintes opcoes</p>
-					<br/>
-				
-					<h:commandButton value = "Productos" action="prodMenu"/>
-					<h:commandButton value = "Prateleiras"/> 
-				
-					<br />
-					<button>exit</button>
-					
-				</h:panelGrid>
-				
-			</h:form>
-		</div>
-
-
-		
-	<!-- 1 - Menu principal produto -->
-		
-
-		<div id="produtos">
-			<h1 > Produtos </h1>
-			
-	<!-- 		1.1 - tabela dos produtos -->
-				<p:dataTable value="#{productview.products}" var="product" border="1">
-					
-					<!-- <p:column headerText>#{p.idProd}</p:column> -->
-					<p:column headerText="Nome">nome</p:column>
-					<p:column headerText="Id">#{product.pratIdLoc}</p:column>
-					<p:column headerText="Discount">#{product.desconto}</p:column>
-					<p:column headerText="IVA">#{product.iva}</p:column>
-					<p:column headerText="PVP">#{product.pvp}</p:column>
-					<p:column headerText="Opcoes">
-						<button>Editar </button>
-						<button>Ver Detalhes</button>
-						<button>Eliminar </button>
-					</p:column>
-		
-				</p:dataTable>
-	
-	<!-- 	1.2 - Inserir detalhes do produto --> 
-	
-			<p>Insira os detalhes do Produto</p>
-				
 				<h:form>
-	
-					<h:panelGrid columns="2">
-						Nome
-						<h:inputText value="#{productview.product.pratIdLoc}"/>
-						Prateleiras onde está exposto 
-						<h:inputText value="#{productview.product.pratIdLoc}"/>
-						Desconto 
-						<h:inputText value="#{productview.product.desconto}" required="true"/>
-						IVA 
-						<h:inputText value="#{productview.product.iva}" required="true"/>
-						PVP 
-						<h:inputText value="#{productview.product.pvp}" required="true"/>
-						<br/>
-						
-						
+
+					<h:panelGrid columns="3">
+
+						<p>Por favor selecione uma das seguintes opcoes</p>
+						<br />
+						<div>
+							<h:commandButton value="Productos" action="product" />
+							<h:commandButton value="Prateleiras" action="shelf" />
+						</div>
+						<br />
+						<button>exit</button>
+
 					</h:panelGrid>
-				
+
 				</h:form>
-			
-						<h:commandButton value = "Save" action="#{Product.addProd}"/>
-						<h:commandButton value = "Cancel"/> 
-	
-	
-		</div>
-		<div id="prateleiras">
-	<!-- Prateleiras
-		1 - Menu principal produto -->
-			<h1> Prateleiras </h1>
-			
-<!-- 			1.1 - tabela dos prateleiras -->
-				<p:dataTable value="#{shelfView.shelfs}" var="s" border="1">
-					
-				<!-- 	<p:column headerText="gfs">#{s.idShelf}</p:column> -->
-					<p:column headerText="Id">#{s.codigo}</p:column>
-					<p:column headerText="Discount">#{s.capacidade}</p:column>
-					<p:column headerText="IVA">#{s.produto}</p:column>
-					<p:column headerText="PVP">#{s.preco}</p:column>
-					<p:column headerText="Opcoes">
-						<button>Editar </button>
-						<button>Ver Detalhes</button>
-						<button>Eliminar </button>
-					</p:column>
-		
-				</p:dataTable>
-	
-	<!-- 	1.2 - Inserir detalhes do produto  -->
-	
-			<p>Insira os detalhes da Prateleira</p>
-				
-				<h:form>
-	
-					<h:panelGrid columns="2">
-			
-						Localizacao da Prateleira 
-						<h:inputText value="#{shelfRepository.shelf.codigo}" required="true"/>
-						Capacidade 
-						<h:inputText value="#{shelfRepository.shelf.capacidade}" required="true"/>
-						Produto Disponivel
-						<h:inputText value="#{shelfRepository.shelf.produto}"/>
-						Preco de Aluger
-						<h:inputText value="#{shelfview.shelf.preco}" required="true"/>
-						<br/>
-						
-						
-					</h:panelGrid>
-				
-				</h:form>
-			
-						<h:commandButton value = "Save" action="#{shelfview.addShelf}"/>
-						<h:commandButton value = "Cancel" action="homepage"/> 
-			</div>	
-			</ui:define>
-			
-			
-		</ui:composition>
-	</h:body>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
 </html>
