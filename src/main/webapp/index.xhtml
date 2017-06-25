@@ -13,37 +13,44 @@
 
 
 	<!-- Produto-->
-
-	<ui:composition template="CommonLayout.xhtml">
-		<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
-		<ui:define name="content">
-
-
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+			<h1>Product And Shelf Data Base</h1>
 
 			<!-- Menu
 	0 - Menu principal  -->
 			<div id="homepage" class="ui-g-12 ui-md-6 ui-lg-3">
+			
 				<h1>Bem vindo ao Productdb</h1>
 
 				<h:form>
 
-					<h:panelGrid columns="3">
-
-						<p>Por favor selecione uma das seguintes opcoes</p>
-						<br />
-						<div>
-							<h:commandButton value="Productos" action="product" />
-							<h:commandButton value="Prateleiras" action="shelf" />
-						</div>
-						<br />
-						<button>exit</button>
-
-					</h:panelGrid>
+					<div>
+						<p>Bem vindo à DB, por favor faça Login</p>
+						
+							<h:panelGrid columns="2">
+									
+								<div>
+								
+									
+								
+								
+									<h:outputText value="User Name: "/>
+									<p:inputText/>
+									<br/>
+									<h:outputText value="Password: "/>
+									<p:password />
+							
+									<h:commandButton value="Login" action="mainmenu" />
+								</div>
+							</h:panelGrid>
+					</div>
 
 				</h:form>
 			</div>
+			
+		<div>
+			UP ACADEMY 2017 - DIOGO MARVAO
+		</div>
 
-		</ui:define>
-	</ui:composition>
 </h:body>
 </html>

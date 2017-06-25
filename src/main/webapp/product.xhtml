@@ -43,26 +43,40 @@
 
 				<!-- 	1.2 - Inserir detalhes do produto -->
 
-				<p>Insira os detalhes do Produto</p>
 
 				<h:form>
+										 <p:growl id="message" showDetail="true" />
+				
+				<p:commandButton value="Novo Producto" actionListener="#{dialogView.newElement}" update="message">
+        							
+        								<p>Insira os detalhes do Produto</p>
+        							<h:panelGrid columns="2">
+										Nome
+										<h:inputText/>
+										Prateleiras onde está exposto 
+										<h:inputText/>
+										Desconto 
+										<h:inputText/>
+										IVA 
+										<h:inputText/>
+										PVP 
+										<h:inputText />
+										<br />
+										
+										
+										</h:panelGrid>
+										
+									</p:commandButton>
+									
+									<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+								        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+								        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+								    </p:confirmDialog>
 
-					<h:panelGrid columns="2">
-						Nome
-						<h:inputText value="#{productview.pratIdLoc}" />
-						Prateleiras onde está exposto 
-						<h:inputText value="#{productview.pratIdLoc}" />
-						Desconto 
-						<h:inputText value="#{productview.desconto}"
-							required="true" />
-						IVA 
-						<h:inputText value="#{productview.iva}" required="true" />
-						PVP 
-						<h:inputText value="#{productview.pvp}" required="true" />
-						<br />
+					
 
 
-					</h:panelGrid>
+					
 
 				</h:form>
 
