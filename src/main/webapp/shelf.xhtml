@@ -40,32 +40,37 @@
 				</p:dataTable>
 
 				<!-- 	1.2 - Inserir detalhes do produto  -->
+				
+				<h:form>
+				<p:growl id="message" showDetail="true" />
+				
+				<p:commandButton value="Nova Prateleira" actionListener="#{dialogView.newElement}" update="message">
 
 				<p>Insira os detalhes da Prateleira</p>
-
-				<h:form>
-
+				
 					<h:panelGrid columns="2">
-			
-						Localizacao da Prateleira 
-						<h:inputText value="#{shelfRepository.shelf.codigo}"
+  							
+   							<h:outputText value="Codigo: "/>
+							<p:inputText value="#{shelfView.codigo}"
 							required="true" />
-						Capacidade 
-						<h:inputText value="#{shelfRepository.shelf.capacidade}"
-							required="true" />
-						Produto Disponivel
-						<h:inputText value="#{shelfRepository.shelf.produto}" />
-						Preco de Aluger
-						<h:inputText value="#{shelfview.shelf.preco}" required="true" />
-						<br />
-
+							<h:outputText value="Capacidade: "/>
+							<p:inputText value="#{shelfView.capacidade}" required="true"/>
+							<h:outputText value="Produto Associado: "/>
+							<p:inputText value="#{shelfView.produto}" required="true"/>
+							<h:outputText value="Preco de Aluguer: "/>
+							<p:inputText value="#{shelfView.preco}" required="true"/>
+							<br />
 
 					</h:panelGrid>
+					
+				</p:commandButton>	
+				
+							<h:commandButton value="Save" action="#{shelfview.addShelf}" />
+							<h:commandButton value="Cancel" action="homepage" />
 
 				</h:form>
 
-				<h:commandButton value="Save" action="#{shelfview.addShelf}" />
-				<h:commandButton value="Cancel" action="homepage" />
+				
 			</div>
 		</ui:define>
 

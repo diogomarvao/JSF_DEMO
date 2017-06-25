@@ -22,6 +22,11 @@ public class ShelfView implements Serializable{
 	@Inject
 	private Shelf shelf;
 	
+	private int codigo;
+	private int capacidade;
+	private Integer produto;
+	private double preco;
+	
 	private static List <Shelf> shelfs = new ArrayList<>();
 	
 	static{
@@ -30,9 +35,9 @@ public class ShelfView implements Serializable{
 	
 	
 	public String addShelf(){
+		Shelf shelf = new Shelf();
+		shelf.addShelf(this.codigo, this.capacidade, this.produto, this.preco);
 		shelfs.add(shelf);
-		clear();
-		
 		return null;
 	}
 	

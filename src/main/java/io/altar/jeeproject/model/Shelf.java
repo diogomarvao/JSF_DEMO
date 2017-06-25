@@ -13,10 +13,12 @@ import io.altar.jeeproject.repository.EntityRepository;
 import io.altar.jeeproject.repository.ProductRepository;
 import io.altar.jeeproject.repository.ShelfRepository;
 import io.altar.jeeproject.util.Utils;
+import io.altar.jeeproject.view.ShelfView;
 
 @Named
 @SessionScoped
 public class Shelf extends Entity implements Serializable {
+		ShelfView view = new ShelfView();
 	
 		private int codigo;
 		private int capacidade;
@@ -70,12 +72,12 @@ public class Shelf extends Entity implements Serializable {
 		
 //adicionar a parteleira criada ao repositorio shelfRepository
 
-	public Shelf(int codigo, int capacidade, Integer produto, double preco) {
+	public void addShelf(int codigo, int capacidade, Integer produto, double preco) {
 		this.codigo = codigo;
 		this.capacidade = capacidade;
 		this.produto = produto;
 		this.preco = preco;
-		shelfRepository.addToList(this);
+		view.getShelfs().add(this);
 	}
 }
 		

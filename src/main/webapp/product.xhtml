@@ -45,43 +45,37 @@
 
 
 				<h:form>
-										 <p:growl id="message" showDetail="true" />
+				<p:growl id="message" showDetail="true" />
 				
 				<p:commandButton value="Novo Producto" actionListener="#{dialogView.newElement}" update="message">
         							
-        								<p>Insira os detalhes do Produto</p>
-        							<h:panelGrid columns="2">
-										Nome
-										<h:inputText/>
-										Prateleiras onde está exposto 
-										<h:inputText/>
-										Desconto 
-										<h:inputText/>
-										IVA 
-										<h:inputText/>
-										PVP 
-										<h:inputText />
-										<br />
+					<p>Insira os detalhes do Produto</p>
+  								
+						<h:panelGrid columns="2">
+  							
+   							<h:outputText value="Nome: "/>
+							<p:inputText />
+							<h:outputText value="Prateleiras: "/>
+							<p:inputText value="#{productView.pratIdLoc}" required="true"/>
+							<h:outputText value="Desconto: "/>
+							<p:inputText value="#{productView.desconto}" required="true"/>
+							<h:outputText value="IVA: "/>
+							<p:inputText value="#{productView.iva}" required="true"/>
+							<h:outputText value="PVP: "/>
+							<p:inputText value="#{productView.pvp}" required="true"/>
+							<br />
+				
+						</h:panelGrid>
 										
+				</p:commandButton>
 										
-										</h:panelGrid>
-										
-									</p:commandButton>
-									
-									<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-								        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-								        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-								    </p:confirmDialog>
+							<h:commandButton value="Save" action="#{product.addProd}" />
+							<h:commandButton value="Cancel" />
 
 					
-
-
-					
-
 				</h:form>
 
-				<h:commandButton value="Save" action="#{product.addProd}" />
-				<h:commandButton value="Cancel" />
+				
 
 			</div>
 		</ui:define>
