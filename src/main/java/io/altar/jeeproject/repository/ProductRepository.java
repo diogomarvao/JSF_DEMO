@@ -25,12 +25,12 @@ private static final ProductRepository INSTANCE = new ProductRepository();
 	
 //	editar valores
 	
-	public void alterProdElement(int id,ArrayList<Integer> pratIdLoc, double desconto, int iva, double pvp) {
-		((Product) get(id)).setPratIdLoc(pratIdLoc);
-		((Product) get(id)).setDesconto(desconto);
-		((Product) get(id)).setIva(iva);
-		((Product) get(id)).setPvp(pvp);
-	}	
+//	public void alterProdElement(int id, Integer pratIdLoc, double desconto, int iva, double pvp) {
+//		((Product) get(id)).setPratIdLoc(pratIdLoc);
+//		((Product) get(id)).setDesconto(desconto);
+//		((Product) get(id)).setIva(iva);
+//		((Product) get(id)).setPvp(pvp);
+//	}	
 	
 	
 //Print valores da tabela do prod (chamado na TextInterface.java)

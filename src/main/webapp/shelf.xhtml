@@ -22,15 +22,15 @@
 				<!-- Prateleiras
 		1 - Menu principal produto -->
 				<h1>Prateleiras</h1>
-
+ 
 				<!-- 			1.1 - tabela dos prateleiras -->
-				<p:dataTable value="#{shelfView.shelfs}" var="s" border="1">
+				<p:dataTable value="#{shelfView.shelfs}" var="newshelf" border="1">
 
 					<!-- 	<p:column headerText="gfs">#{s.idShelf}</p:column> -->
-					<p:column headerText="Id">#{s.codigo}</p:column>
-					<p:column headerText="Discount">#{s.capacidade}</p:column>
-					<p:column headerText="IVA">#{s.produto}</p:column>
-					<p:column headerText="PVP">#{s.preco}</p:column>
+					<p:column headerText="Id">#{newshelf.codigo}</p:column>
+					<p:column headerText="Discount">#{newshelf.capacidade}</p:column>
+					<p:column headerText="IVA">#{newshelf.produto}</p:column>
+					<p:column headerText="PVP">#{newshelf.preco}</p:column>
 					<p:column headerText="Opcoes">
 						<button>Editar</button>
 						<button>Ver Detalhes</button>
@@ -42,10 +42,7 @@
 				<!-- 	1.2 - Inserir detalhes do produto  -->
 				
 				<h:form>
-				<p:growl id="message" showDetail="true" />
 				
-				<p:commandButton value="Nova Prateleira" actionListener="#{dialogView.newElement}" update="message">
-
 				<p>Insira os detalhes da Prateleira</p>
 				
 					<h:panelGrid columns="2">
@@ -63,8 +60,6 @@
 
 					</h:panelGrid>
 					
-				</p:commandButton>	
-				
 							<h:commandButton value="Save" action="#{shelfview.addShelf}" />
 							<h:commandButton value="Cancel" action="homepage" />
 

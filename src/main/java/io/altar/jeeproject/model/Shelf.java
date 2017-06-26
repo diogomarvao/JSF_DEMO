@@ -77,7 +77,7 @@ public class Shelf extends Entity implements Serializable {
 		this.capacidade = capacidade;
 		this.produto = produto;
 		this.preco = preco;
-		view.getShelfs().add(this);
+//		view.getShelfs().add(this);
 	}
 }
 		
