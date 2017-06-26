@@ -24,15 +24,15 @@
 				<h1>Produtos</h1>
 
 				<!-- 		1.1 - tabela dos produtos -->
-				<p:dataTable value="#{productview.products}" var="product"
+				<p:dataTable value="#{productView.products}" var="newproduct"
 					border="1">
 
 					<!-- <p:column headerText>#{p.idProd}</p:column> -->
 					<p:column headerText="Nome">nome</p:column>
-					<p:column headerText="Id">#{product.pratIdLoc}</p:column>
-					<p:column headerText="Discount">#{product.desconto}</p:column>
-					<p:column headerText="IVA">#{product.iva}</p:column>
-					<p:column headerText="PVP">#{product.pvp}</p:column>
+					<p:column headerText="Id">#{newproduct.pratIdLoc}</p:column>
+					<p:column headerText="Discount">#{newproduct.desconto}</p:column>
+					<p:column headerText="IVA">#{newproduct.iva}</p:column>
+					<p:column headerText="PVP">#{newproduct.pvp}</p:column>
 					<p:column headerText="Opcoes">
 						<button>Editar</button>
 						<button>Ver Detalhes</button>
@@ -45,9 +45,6 @@
 
 
 				<h:form>
-				<p:growl id="message" showDetail="true" />
-				
-				<p:commandButton value="Novo Producto" actionListener="#{dialogView.newElement}" update="message">
         							
 					<p>Insira os detalhes do Produto</p>
   								
@@ -67,15 +64,10 @@
 				
 						</h:panelGrid>
 										
-				</p:commandButton>
-										
-							<h:commandButton value="Save" action="#{product.addProd}" />
+							<h:commandButton value="Save" action="#{productView.addProd}" />
 							<h:commandButton value="Cancel" />
-
-					
+	
 				</h:form>
-
-				
 
 			</div>
 		</ui:define>

@@ -16,7 +16,7 @@ import io.altar.jeeproject.view.ProductView;
 public class Product extends Entity implements Serializable{
 	ProductView view = new ProductView();
 	
-	private ArrayList<Integer> pratIdLoc= new ArrayList<>();
+	private Integer pratIdLoc;
 	private double desconto;
 	private int iva;
 	private double pvp;
@@ -24,10 +24,10 @@ public class Product extends Entity implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public ArrayList<Integer> getPratIdLoc() {
+	public Integer getPratIdLoc() {
 		return pratIdLoc;
 	}
-	public void setPratIdLoc(ArrayList<Integer> pratIdLoc) {
+	public void setPratIdLoc(Integer pratIdLoc) {
 		this.pratIdLoc = pratIdLoc;
 	}
 	public double getDesconto() {
@@ -56,12 +56,12 @@ public class Product extends Entity implements Serializable{
 	
 // adicionar a parteleira criada ao repositorio shelfRepository
 
-	public void addProd(ArrayList<Integer> pratIdLoc, double desconto, int iva, double pvp) {
+	public void addProd(Integer pratIdLoc, double desconto, int iva, double pvp) {
 		this.pratIdLoc = pratIdLoc;
 		this.desconto = desconto;
 		this.iva = iva;
 		this.pvp = pvp;
-		view.getProducts().add(this);
+		//view.getProducts().add(this);
 }
 	
 }
