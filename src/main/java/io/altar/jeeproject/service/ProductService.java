@@ -13,12 +13,19 @@ import io.altar.jeeproject.repository.ProductRepository;
 @ApplicationScoped
 public class ProductService {
 
-	private ProductRepository productList = ProductRepository.getInstance();
+	private ProductRepository productRepository = ProductRepository.getInstance();
 	
 	public void addProduct(Product product){
-		productList.addToList(product);
+		productRepository.addToList(product);
 	}
 	
 	
-	public 
+	public void  getProductRepository(){
+		
+		List<String> productRepository =  new ArrayList<>();
+				
+		productRepository = ProductRepository.getInstance();
+		
+		
+	}
 }

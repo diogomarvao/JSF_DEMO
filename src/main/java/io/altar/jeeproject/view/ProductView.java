@@ -76,11 +76,11 @@ public class ProductView implements Serializable{
 		return null;
 	}
 	
-	public producList getproductList(){
+	public void getproductList(){
+		ProductService productService = new ProductService();
 		
+		productService.getProductRepository();
 		
-		
-		return productList;
 	}
 	
 	
