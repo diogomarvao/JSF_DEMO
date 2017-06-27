@@ -26,8 +26,8 @@
 				<!-- 			1.1 - tabela dos prateleiras -->
 				<p:dataTable value="#{shelfView.getShelfList()}" var="newshelf" border="1">
 
-					<!-- 	<p:column headerText="gfs">#{s.idShelf}</p:column> -->
-					<p:column headerText="Id">#{newshelf.cod}</p:column>
+					<p:column headerText="ID">#{newshelf.id}</p:column>
+					<p:column headerText="Codigo">#{newshelf.cod}</p:column>
 					<p:column headerText="Discount">#{newshelf.cap}</p:column>
 					<p:column headerText="IVA">#{newshelf.prod}</p:column>
 					<p:column headerText="PVP">#{newshelf.preco}</p:column>
@@ -60,7 +60,7 @@
 
 					</h:panelGrid>
 					
-							<h:commandButton value="Save" action="#{shelfview.addShelf}" />
+							<h:commandButton value="Save" action="#{shelfView.addShelf}" />
 							<h:commandButton value="Cancel" action="homepage" />
 
 				</h:form>
