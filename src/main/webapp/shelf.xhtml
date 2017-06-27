@@ -24,12 +24,12 @@
 				<h1>Prateleiras</h1>
  
 				<!-- 			1.1 - tabela dos prateleiras -->
-				<p:dataTable value="#{shelfView.shelfs}" var="newshelf" border="1">
+				<p:dataTable value="#{shelfView.getShelfList()}" var="newshelf" border="1">
 
 					<!-- 	<p:column headerText="gfs">#{s.idShelf}</p:column> -->
-					<p:column headerText="Id">#{newshelf.codigo}</p:column>
-					<p:column headerText="Discount">#{newshelf.capacidade}</p:column>
-					<p:column headerText="IVA">#{newshelf.produto}</p:column>
+					<p:column headerText="Id">#{newshelf.cod}</p:column>
+					<p:column headerText="Discount">#{newshelf.cap}</p:column>
+					<p:column headerText="IVA">#{newshelf.prod}</p:column>
 					<p:column headerText="PVP">#{newshelf.preco}</p:column>
 					<p:column headerText="Opcoes">
 						<button>Editar</button>
@@ -48,14 +48,14 @@
 					<h:panelGrid columns="2">
   							
    							<h:outputText value="Codigo: "/>
-							<p:inputText value="#{shelfView.codigo}"
+							<p:inputText value="#{shelfView.shelf.cod}"
 							required="true" />
 							<h:outputText value="Capacidade: "/>
-							<p:inputText value="#{shelfView.capacidade}" required="true"/>
+							<p:inputText value="#{shelfView.shelf.cap}" required="true"/>
 							<h:outputText value="Produto Associado: "/>
-							<p:inputText value="#{shelfView.produto}" required="true"/>
+							<p:inputText value="#{shelfView.shelf.prod}" required="true"/>
 							<h:outputText value="Preco de Aluguer: "/>
-							<p:inputText value="#{shelfView.preco}" required="true"/>
+							<p:inputText value="#{shelfView.shelf.preco}" required="true"/>
 							<br />
 
 					</h:panelGrid>

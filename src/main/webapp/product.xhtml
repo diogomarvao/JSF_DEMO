@@ -24,10 +24,10 @@
 				<h1>Produtos</h1>
 
 				<!-- 		1.1 - tabela dos produtos -->
-				<p:dataTable value="#{productView.getproductList}" var="newproduct"
+			<p:dataTable value="#{productView.getProductList()}" var="newproduct"
 					border="1">
 
-					<!-- <p:column headerText>#{p.idProd}</p:column> -->
+					<p:column headerText="Id">#{newproduct.id}</p:column>
 					<p:column headerText="Nome">nome</p:column>
 					<p:column headerText="Prateleiras">#{newproduct.pratIdLoc}</p:column>
 					<p:column headerText="Discount">#{newproduct.desconto}</p:column>
@@ -39,7 +39,7 @@
 						<button>Eliminar</button>
 					</p:column>
 
-				</p:dataTable>
+			</p:dataTable>
 
 				<!-- 	1.2 - Inserir detalhes do produto -->
 
@@ -53,13 +53,13 @@
    							<h:outputText value="Nome: "/>
 							<p:inputText />
 							<h:outputText value="Prateleiras: "/>
-							<p:inputText value="#{productView.pratIdLoc}" required="true"/>
+							<p:inputText value="#{productView.product.pratIdLoc}" required="true"/>
 							<h:outputText value="Desconto: "/>
-							<p:inputText value="#{productView.desconto}" required="true"/>
+							<p:inputText value="#{productView.product.desconto}" required="true"/>
 							<h:outputText value="IVA: "/>
-							<p:inputText value="#{productView.iva}" required="true"/>
+							<p:inputText value="#{productView.product.iva}" required="true"/>
 							<h:outputText value="PVP: "/>
-							<p:inputText value="#{productView.pvp}" required="true"/>
+							<p:inputText value="#{productView.product.pvp}" required="true"/>
 							<br />
 				
 						</h:panelGrid>

@@ -2,6 +2,7 @@ package io.altar.jeeproject.view;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -11,6 +12,7 @@ import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
 import io.altar.jeeproject.model.Shelf;
+import io.altar.jeeproject.service.ShelfService;
 
 
 @Named("shelfView")
@@ -20,64 +22,68 @@ public class ShelfView implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
 	
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-
-	public int getCapacidade() {
-		return capacidade;
-	}
-
-	public void setCapacidade(int capacidade) {
-		this.capacidade = capacidade;
-	}
-
-	public Integer getProduto() {
-		return produto;
-	}
-
-	public void setProduto(Integer produto) {
-		this.produto = produto;
-	}
-
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
-	private int codigo;
-	private int capacidade;
-	private Integer produto;
-	private double preco;
+//	public int getCodigo() {
+//		return codigo;
+//	}
+//
+//	public void setCodigo(int codigo) {
+//		this.codigo = codigo;
+//	}
+//
+//	public int getCapacidade() {
+//		return capacidade;
+//	}
+//
+//	public void setCapacidade(int capacidade) {
+//		this.capacidade = capacidade;
+//	}
+//
+//	public Integer getProduto() {
+//		return produto;
+//	}
+//
+//	public void setProduto(Integer produto) {
+//		this.produto = produto;
+//	}
+//
+//	public double getPreco() {
+//		return preco;
+//	}
+//
+//	public void setPreco(double preco) {
+//		this.preco = preco;
+//	}
+//
+//	private int codigo;
+//	private int capacidade;
+//	private Integer produto;
+//	private double preco;
 	
 	@Inject
-	private Shelf shelf;
+	private ShelfService shelfService;
 	
-	private static List <Shelf> shelfs = new ArrayList<>();
+//	private static List <Shelf> shelfs = new ArrayList<>();
+//	
+//	static{
+//		shelfs.add(new Shelf());
+//	}
 	
-	static{
-		shelfs.add(new Shelf());
-	}
+	Shelf shelf = new Shelf();
 	
+	
+//	adicionar shelfs
 	
 	public String addShelf(){
-		
-		shelf.addShelf(this.codigo, this.capacidade, this.produto, this.preco);
-		shelfs.add(shelf);
+		shelfService.addShelf(shelf);
 		return null;
 	}
 	
-	private void clear(){
-		shelf = new Shelf();
+// imprimir shelf
+
+	public List<Shelf> getShelfList() {
+		return new ArrayList<Shelf> ((Collection<Shelf>)shelfService.getShelfRepository().values());
 	}
-	
+
 	public Shelf getShelf() {
 		return shelf;
 	}
@@ -86,13 +92,17 @@ public class ShelfView implements Serializable{
 		this.shelf = shelf;
 	}
 
-	public List<Shelf> getShelfs() {
-		return shelfs;
-	}
 
-	public void setShelfs(List<Shelf> shelfs) {
-		this.shelfs = shelfs;
-	}
+	
+	
+	
+//	public List<Shelf> getShelfs() {
+//		return shelfs;
+//	}
+//
+//	public void setShelfs(List<Shelf> shelfs) {
+//		this.shelfs = shelfs;
+//	}
 
 		
 }

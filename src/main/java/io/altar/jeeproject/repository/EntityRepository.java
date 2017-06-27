@@ -34,6 +34,10 @@ public class EntityRepository<E extends Entity> {
 		public Set<Integer> keySet(){
 			return entityList.keySet();
 	}
+		
+		public Collection<E> values(){
+			return entityList.values();
+	}
 	
 	//Verificar se a lista esta vazia	(utilizado para verificar a existencia de produtos
 //											ou parteleiras durante a cria�ao dos mesmos)

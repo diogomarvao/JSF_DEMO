@@ -18,13 +18,13 @@ import io.altar.jeeproject.view.ShelfView;
 @Named
 @SessionScoped
 public class Shelf extends Entity implements Serializable {
-		ShelfView view = new ShelfView();
+//		ShelfView view = new ShelfView();
 	
 		private int codigo;
 		private int capacidade;
 		private Integer produto;
 		private double preco;
-		private ShelfRepository shelfRepository;
+
 		
 		private static final long serialVersionUID = 1L;
 	
@@ -72,12 +72,12 @@ public class Shelf extends Entity implements Serializable {
 		
 //adicionar a parteleira criada ao repositorio shelfRepository
 
-	public void addShelf(int codigo, int capacidade, Integer produto, double preco) {
-		this.codigo = codigo;
-		this.capacidade = capacidade;
-		this.produto = produto;
-		this.preco = preco;
-//		view.getShelfs().add(this);
-	}
+//	public void addShelf(int codigo, int capacidade, Integer produto, double preco) {
+//		this.codigo = codigo;
+//		this.capacidade = capacidade;
+//		this.produto = produto;
+//		this.preco = preco;
+////		view.getShelfs().add(this);
+//	}
 }
 		

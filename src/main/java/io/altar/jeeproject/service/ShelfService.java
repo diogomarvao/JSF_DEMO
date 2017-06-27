@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
@@ -12,13 +13,17 @@ import io.altar.jeeproject.model.Shelf;
 import io.altar.jeeproject.repository.ShelfRepository;
 
 @Named("shelfService")
-@ApplicationScoped
+@RequestScoped
 public class ShelfService {
 	
-	private ShelfRepository shelfList = ShelfRepository.getInstance();
+	private ShelfRepository shelfRepository = ShelfRepository.getInstance();
 
 	
 	public void addShelf(Shelf shelf){
-		shelfList.addToList(shelf);
+		shelfRepository.addToList(shelf);
+	}
+	
+	public ShelfRepository getShelfRepository(){
+		return shelfRepository;
 	}
 }

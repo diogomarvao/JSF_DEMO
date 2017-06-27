@@ -1,16 +1,13 @@
 package io.altar.jeeproject.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
 import io.altar.jeeproject.repository.ProductRepository;
 
 @Named("productService")
-@ApplicationScoped
+@RequestScoped
 public class ProductService {
 
 	private ProductRepository productRepository = ProductRepository.getInstance();
@@ -20,12 +17,8 @@ public class ProductService {
 	}
 	
 	
-	public void  getProductRepository(){
+	public ProductRepository getProductRepository(){
 		
-		List<String> productRepository =  new ArrayList<>();
-				
-		productRepository = ProductRepository.getInstance();
-		
-		
+		return productRepository;
 	}
 }

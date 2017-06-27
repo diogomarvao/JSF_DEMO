@@ -2,15 +2,15 @@ package io.altar.jeeproject.view;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
-import io.altar.jeeproject.service.ProductService;
+import io.altar.jeeproject.service.ProductService; 
 
 
 @Named("productView")
@@ -58,43 +58,44 @@ public class ProductView implements Serializable{
 //	double pvp;
 	
 	@Inject
-	private Product product;
+	private ProductService productService;
 	
 //	private static List <Product> products = new ArrayList<>();
 	
 //	static{
 //		products.add(new Product());
 //	}
-
+	Product product = new Product();
+	
+	
+//	Adicionar productos
+	
+	
 	public String addProd(){
-		ProductService productService = new ProductService();
-
 		productService.addProduct(product);
 //		product.addProd(this.pratIdLoc,this.desconto,this.iva,this.pvp);
 //		products.add(product);
-		clear();
 		return null;
 	}
 	
-	public void getproductList(){
-		ProductService productService = new ProductService();
-		
-		productService.getProductRepository();
-		
+	
+//	Produtos na tabela
+	
+
+	public List<Product> getProductList(){
+		return new ArrayList<Product> ((Collection<Product>)productService.getProductRepository().values());
 	}
 	
 	
-	private void clear(){
-		product = new Product();
-	}
+
 	
-//	public Product getProduct() {
-//		return product;
-//	}
-//
-//	public void setProduct(Product product) {
-//		this.product = product;
-//	}
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 //
 //	public List<Product> getProducts() {
 //		return products;
