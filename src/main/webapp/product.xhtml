@@ -30,7 +30,7 @@
 					
 
 					<!-- 		1.1 - tabela dos produtos -->
-					<p:dataTable value="#{productView.getProductList()}" var="newproduct" border="1">
+					<p:dataTable value="#{productView.getProductList()}" var="newproduct" border="1" >
 
 						<p:column headerText="Id">#{newproduct.id}</p:column>
 						<p:column headerText="Prateleiras">#{newproduct.pratIdLoc}</p:column>
@@ -39,8 +39,10 @@
 						<p:column headerText="PVP">#{newproduct.pvp}</p:column>
 						<p:column headerText="Opcoes">
 						
-							<h:commandButton type="button" update="editProduct" value="Editar"
-								onclick="PF('prodEdit').show();" />
+							<p:commandButton update="j_idt50:editProduct" value="Editar"
+								oncomplete="PF('prodEdit').show();">
+								<f:setPropertyActionListener value="#{newproduct}" target="#{productView.activeProduct}" />
+							</p:commandButton>
 							<h:commandButton value="Eliminar"
 								action="#{productView.delProduct(newproduct)}"
 								update="ProductDisplay" />
@@ -105,7 +107,7 @@
 
 							</p:panelGrid>
 							<br/>
-							<p:commandButton value="Submit" action="#{productView.editProduct()}" update="ProductDisplay" />
+							<p:commandButton value="Submit" action="#{productView.editProduct(activeProduct)}" update="ProductDisplay" />
 						</p:outputPanel>
 					</p:dialog>
 				</h:form>

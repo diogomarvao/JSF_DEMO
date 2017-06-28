@@ -19,7 +19,7 @@ import io.altar.jeeproject.service.ProductService;
 public class ProductView implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private Product activeProduct;
+	private Product activeProduct = new Product();
 	
 	
 	
@@ -41,9 +41,8 @@ public class ProductView implements Serializable{
 //	Adicionar productos
 	
 	
-	public String addProd(){
+	public void addProd(){
 		productService.addProduct(product);
-		return null;
 	}
 	
 	
@@ -65,18 +64,22 @@ public class ProductView implements Serializable{
 	
 //	editar produtos
 	
-	public String editProduct(Product product){
+	public void editProduct(Product product){
 		
 			productService.editProduct(product);
-		
-		return null;
+
 	}
 	
 //	eliminar produtos
 	
-	public String delProduct(Product product){
+	public void delProduct(Product product){
 			productService.delEntity(productService.getProductRepository(), product);
-		return null;
+
 	}
 	
+	public void passActiveProduct(Product product){
+		System.out.println(1);
+		setActiveProduct(product);
+
+	}
 }
