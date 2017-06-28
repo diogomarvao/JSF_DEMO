@@ -22,6 +22,11 @@
 				<!-- Prateleiras
 		1 - Menu principal produto -->
 				<h1>Prateleiras</h1>
+				
+				
+					<h:commandButton update="newShelf"
+							value="Addicionar Nova Prateleira" onclick="PF('shelfNew').show();" />
+					<h:form id="ShelfDisplay">
  
 				<!-- 			1.1 - tabela dos prateleiras -->
 				<p:dataTable value="#{shelfView.getShelfList()}" var="newshelf" border="1">
@@ -32,19 +37,28 @@
 					<p:column headerText="IVA">#{newshelf.prod}</p:column>
 					<p:column headerText="PVP">#{newshelf.preco}</p:column>
 					<p:column headerText="Opcoes">
-						<button>Editar</button>
-						<button>Ver Detalhes</button>
-						<button>Eliminar</button>
+						
+							<p:commandButton value="Editar"
+								oncomplete="PF('shelfEdit').show();">
+								<f:setPropertyActionListener value="#{newshelf}" target="#{shelfView.activeShelf}" />
+							</p:commandButton>
+							<h:commandButton value="Eliminar"
+								action="#{shelfView.delShelf(newshelf)}"
+								update="ShelfDisplay" />
+								
 					</p:column>
 
 				</p:dataTable>
+				</h:form>
 
 				<!-- 	1.2 - Inserir detalhes do produto  -->
 				
 				<h:form>
-				
-				<p>Insira os detalhes da Prateleira</p>
-				
+					
+					<p:dialog header="Nova Prateleira" widgetVar="shelfNew">
+						<p:outputPanel id="newShelf" style="text-align:center;">
+
+						
 					<h:panelGrid columns="2">
   							
    							<h:outputText value="Codigo: "/>
@@ -62,9 +76,38 @@
 					
 							<h:commandButton value="Save" action="#{shelfView.addShelf}" />
 							<h:commandButton value="Cancel" action="homepage" />
-
+				</p:outputPanel>
+									</p:dialog>
 				</h:form>
 
+				<h:form>
+					<p:dialog header="Editar Prateleira" widgetVar="shelfEdit">
+						<p:outputPanel id="editShelf" style="text-align:center;">
+							<p:panelGrid columns="2">
+
+								<h:outputText value="Localizacao:" />
+								<p:inputText value="#{shelfView.activeShelf.cod}" />
+
+								<h:outputText value="Capacidade: " />
+								<p:inputText value="#{shelfView.activeShelf.cap}"
+									required="true" />
+
+								<h:outputText value="Produto Associado: " />
+								<p:inputText value="#{shelfView.activeShelf.prod}"
+									required="true" />
+
+								<h:outputText value="Preço de Aluger" />
+								<p:inputText value="#{shelfView.activeShelf.preco}"
+									required="true" />
+
+							</p:panelGrid>
+							<br/>
+							<p:commandButton value="Submit" action="#{shelfView.editShelf(activeShelf)}" update="ShelfDisplay" />
+						</p:outputPanel>
+					</p:dialog>
+				</h:form>
+				
+				
 				
 			</div>
 		</ui:define>

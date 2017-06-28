@@ -39,7 +39,10 @@
 						<p:column headerText="PVP">#{newproduct.pvp}</p:column>
 						<p:column headerText="Opcoes">
 						
-							<p:commandButton update="j_idt50:editProduct" value="Editar"
+							<!--  <p:commandButton update="j_idt50:editProduct" value="Editar"
+								oncomplete="PF('prodEdit').show();">-->
+								
+							<p:commandButton value="Editar"
 								oncomplete="PF('prodEdit').show();">
 								<f:setPropertyActionListener value="#{newproduct}" target="#{productView.activeProduct}" />
 							</p:commandButton>

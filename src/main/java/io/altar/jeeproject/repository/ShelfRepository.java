@@ -14,14 +14,14 @@ public class ShelfRepository extends EntityRepository <Shelf>{
 
 	
 	
-//substituir ou adicionar as caraterisiticas no Linked hash map (chamado na TextInterface.java)	
-		
-//		public void alterShelfElement(int id,int codigo, int capacidade, Integer produto, double preco) {
-//			((Shelf) get(id)).setCod(codigo);
-//			((Shelf) get(id)).setCap(capacidade);
-//			((Shelf) get(id)).setProd(produto);
-//			((Shelf) get(id)).setPreco(preco);
-//		}
+//substituir ou adicionar as caraterisiticas no Linked hash map 
+	
+		public void alterShelfElement(int id,int codigo, int capacidade, Integer produto, double preco) {
+			((Shelf) get(id)).setCod(codigo);
+			((Shelf) get(id)).setCap(capacidade);
+			((Shelf) get(id)).setProd(produto);
+			((Shelf) get(id)).setPreco(preco);
+		}
 
 
 }

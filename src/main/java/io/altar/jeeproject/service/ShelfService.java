@@ -14,7 +14,7 @@ import io.altar.jeeproject.repository.ShelfRepository;
 
 @Named("shelfService")
 @RequestScoped
-public class ShelfService {
+public class ShelfService extends EntityService<Shelf> {
 	
 	private ShelfRepository shelfRepository = ShelfRepository.getInstance();
 
@@ -25,5 +25,10 @@ public class ShelfService {
 	
 	public ShelfRepository getShelfRepository(){
 		return shelfRepository;
+	}
+	
+	public void editShelf(Shelf shelf){
+		
+		shelfRepository.alterShelfElement(shelf.getId(), shelf.getCod(), shelf.getCap(), shelf.getProd(), shelf.getPreco());
 	}
 }

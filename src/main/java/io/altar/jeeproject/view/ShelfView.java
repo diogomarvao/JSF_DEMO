@@ -21,23 +21,32 @@ import io.altar.jeeproject.service.ShelfService;
 public class ShelfView implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
+	private Shelf activeShelf = new Shelf();
 	
 	
+	
+	public Shelf getActiveShelf() {
+		return activeShelf;
+	}
+
+	public void setActiveShelf(Shelf activeShelf) {
+		this.activeShelf = activeShelf;
+	}
+
 	@Inject
 	private ShelfService shelfService;
-	
 	
 	Shelf shelf = new Shelf();
 	
 	
 //	adicionar shelfs
 	
-	public String addShelf(){
+	public void addShelf(){
 		shelfService.addShelf(shelf);
-		return null;
+
 	}
 	
-// imprimir shelf
+//  shelf na tabela
 
 	public List<Shelf> getShelfList() {
 		return new ArrayList<Shelf> ((Collection<Shelf>)shelfService.getShelfRepository().values());
@@ -51,8 +60,24 @@ public class ShelfView implements Serializable{
 		this.shelf = shelf;
 	}
 
-
+//	editar shelfs
 		
+	public void editShelf(Shelf shelf){
+		shelfService.editShelf(shelf);
+	}
+	
+//	eliminar shelfs
+	
+	public void delShelf(Shelf shelf){
+		shelfService.delEntity(shelfService.getShelfRepository(), shelf);
+	}
+	
+	
+//	passar elementos da shelf activa
+	public void passActiveShelf(Shelf shelf){
+		setActiveShelf(shelf);
+	}
+	
 }
 
 	
