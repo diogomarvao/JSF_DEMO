@@ -21,37 +21,61 @@
 			<!-- 1 - Menu principal produto -->
 
 			<div id="produtos">
-				<h1>Produtos</h1>
-				
-				<h:commandButton update="newProduct"
-						value="Addicionar Novo Produto" onclick="PF('prodNew').show();" />
+				<h1 class="title">Produtos</h1>
+
+				<div class="center">
+					<h:commandButton class="add" update="newProduct"
+						value="Novo Produto" onclick="PF('prodNew').show();" />
+				</div>
+				<br />
+
 				<h:form id="ProductDisplay">
 
-					
-
 					<!-- 		1.1 - tabela dos produtos -->
-					<p:dataTable value="#{productView.getProductList()}" var="newproduct" border="1" >
+					<p:dataTable value="#{productView.getProductList()}"
+						var="newproduct" border="1">
+						<div class="header">
+							<p:column class="header" headerText="Id">
+							<div class="tablecont">
+										#{newproduct.id}
+										</div>
+							</p:column>
+							<p:column class="header" headerText="Prateleiras">
+										<div class="tablecont">
+										#{newproduct.pratIdLoc}
+										</div>
+							</p:column>
+							<p:column class="header" headerText="Discount">
+							<div class="tablecont">
+										#{newproduct.desconto}
+										</div>
+							</p:column>
+							<p:column class="header" headerText="IVA">
+							<div class="tablecont">
+										#{newproduct.iva}
+										</div>
+							</p:column>
+							<p:column class="header" headerText="PVP">
+							<div class="tablecont">
+										#{newproduct.pvp}
+										</div>
+							</p:column>
+							<p:column class="header" headerText="Opcoes">
 
-						<p:column headerText="Id">#{newproduct.id}</p:column>
-						<p:column headerText="Prateleiras">#{newproduct.pratIdLoc}</p:column>
-						<p:column headerText="Discount">#{newproduct.desconto}</p:column>
-						<p:column headerText="IVA">#{newproduct.iva}</p:column>
-						<p:column headerText="PVP">#{newproduct.pvp}</p:column>
-						<p:column headerText="Opcoes">
-						
-							<!--  <p:commandButton update="j_idt50:editProduct" value="Editar"
+								<!--  <p:commandButton update="j_idt50:editProduct" value="Editar"
 								oncomplete="PF('prodEdit').show();">-->
-								
-							<p:commandButton value="Editar"
-								oncomplete="PF('prodEdit').show();">
-								<f:setPropertyActionListener value="#{newproduct}" target="#{productView.activeProduct}" />
-							</p:commandButton>
-							<h:commandButton value="Eliminar"
-								action="#{productView.delProduct(newproduct)}"
-								update="ProductDisplay" />
-								
-						</p:column>
 
+								<p:commandButton value="Editar" class="bottab"
+									oncomplete="PF('prodEdit').show();">
+									<f:setPropertyActionListener value="#{newproduct}"
+										target="#{productView.activeProduct}" />
+								</p:commandButton>
+								<h:commandButton value="Eliminar" class="bottab"
+									action="#{productView.delProduct(newproduct)}"
+									update="ProductDisplay" />
+
+							</p:column>
+						</div>
 					</p:dataTable>
 				</h:form>
 
@@ -109,8 +133,10 @@
 									required="true" />
 
 							</p:panelGrid>
-							<br/>
-							<p:commandButton value="Submit" action="#{productView.editProduct(activeProduct)}" update="ProductDisplay" />
+							<br />
+							<p:commandButton value="Submit"
+								action="#{productView.editProduct(activeProduct)}"
+								update="ProductDisplay" />
 						</p:outputPanel>
 					</p:dialog>
 				</h:form>

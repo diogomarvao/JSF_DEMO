@@ -21,11 +21,14 @@
 			<div id="prateleiras">
 				<!-- Prateleiras
 		1 - Menu principal produto -->
-				<h1>Prateleiras</h1>
+				<h1 class="title">Prateleiras</h1>
 				
-				
-					<h:commandButton update="newShelf"
+				<div class="center"></div>
+					<h:commandButton class="add" update="newShelf"
 							value="Addicionar Nova Prateleira" onclick="PF('shelfNew').show();" />
+				</div>
+				<br/>
+					
 					<h:form id="ShelfDisplay">
  
 				<!-- 			1.1 - tabela dos prateleiras -->
@@ -38,11 +41,11 @@
 					<p:column headerText="PVP">#{newshelf.preco}</p:column>
 					<p:column headerText="Opcoes">
 						
-							<p:commandButton value="Editar"
+							<p:commandButton value="Editar" class="bottab"
 								oncomplete="PF('shelfEdit').show();">
 								<f:setPropertyActionListener value="#{newshelf}" target="#{shelfView.activeShelf}" />
 							</p:commandButton>
-							<h:commandButton value="Eliminar"
+							<h:commandButton value="Eliminar" class="bottab"
 								action="#{shelfView.delShelf(newshelf)}"
 								update="ShelfDisplay" />
 								
