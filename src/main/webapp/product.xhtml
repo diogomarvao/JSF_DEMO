@@ -22,75 +22,92 @@
 
 			<div id="produtos">
 				<h1>Produtos</h1>
-			<h:form>
-				<!-- 		1.1 - tabela dos produtos -->
-				<p:dataTable id="ProductDisplay" value="#{productView.getProductList()}" var="newproduct"
-						border="1">
-	
+				
+				<h:commandButton update="newProduct"
+						value="Addicionar Novo Produto" onclick="PF('prodNew').show();" />
+				<h:form id="ProductDisplay">
+
+					
+
+					<!-- 		1.1 - tabela dos produtos -->
+					<p:dataTable value="#{productView.getProductList()}" var="newproduct" border="1">
+
 						<p:column headerText="Id">#{newproduct.id}</p:column>
-						<p:column headerText="Nome">nome</p:column>
 						<p:column headerText="Prateleiras">#{newproduct.pratIdLoc}</p:column>
 						<p:column headerText="Discount">#{newproduct.desconto}</p:column>
 						<p:column headerText="IVA">#{newproduct.iva}</p:column>
 						<p:column headerText="PVP">#{newproduct.pvp}</p:column>
 						<p:column headerText="Opcoes">
-							<h:commandButton update="editProduct" value="Edit" onclick="PF('prodEdit').show();"/>
-							<button>Ver Detalhes</button>
-							<h:commandButton value="Eliminar" action="#{productView.delProduct(newproduct)}" update="ProductDisplay"/>
+						
+							<h:commandButton type="button" update="editProduct" value="Editar"
+								onclick="PF('prodEdit').show();" />
+							<h:commandButton value="Eliminar"
+								action="#{productView.delProduct(newproduct)}"
+								update="ProductDisplay" />
+								
 						</p:column>
-	
-				</p:dataTable>
-			</h:form>
+
+					</p:dataTable>
+				</h:form>
 
 				<!-- 	1.2 - Inserir detalhes do produto -->
 
 
 				<h:form>
-        							
-					<p>Insira os detalhes do Produto</p>
-  								
-						<h:panelGrid columns="2">
-  							
-   							<h:outputText value="Nome: "/>
-							<p:inputText />
-							<h:outputText value="Prateleiras: "/>
-							<p:inputText value="#{productView.product.pratIdLoc}" required="true"/>
-							<h:outputText value="Desconto: "/>
-							<p:inputText value="#{productView.product.desconto}" required="true"/>
-							<h:outputText value="IVA: "/>
-							<p:inputText value="#{productView.product.iva}" required="true"/>
-							<h:outputText value="PVP: "/>
-							<p:inputText value="#{productView.product.pvp}" required="true"/>
-							<br />
-				
-						</h:panelGrid>
-										
+
+					<p:dialog header="Novo Produto" widgetVar="prodNew">
+						<p:outputPanel id="newProduct" style="text-align:center;">
+
+
+							<h:panelGrid columns="2">
+
+								<h:outputText value="Prateleiras: " />
+								<p:inputText value="#{productView.product.pratIdLoc}"
+									required="true" />
+								<h:outputText value="Desconto: " />
+								<p:inputText value="#{productView.product.desconto}"
+									required="true" />
+								<h:outputText value="IVA: " />
+								<p:inputText value="#{productView.product.iva}" required="true" />
+								<h:outputText value="PVP: " />
+								<p:inputText value="#{productView.product.pvp}" required="true" />
+								<br />
+
+							</h:panelGrid>
+
 							<h:commandButton value="Save" action="#{productView.addProd}" />
 							<h:commandButton value="Cancel" />
-	
+
+						</p:outputPanel>
+					</p:dialog>
+
 				</h:form>
-				
+
 				<h:form>
-						<p:dialog header="Editar Produto" widgetVar="prodEdit">
+					<p:dialog header="Editar Produto" widgetVar="prodEdit">
 						<p:outputPanel id="editProduct" style="text-align:center;">
-								<p:panelGrid columns="2">
-									
-									<h:outputText value="Prateleiras:" />
-									<p:inputText value="#{productView.activeProduct.pratIdLoc}" />
+							<p:panelGrid columns="2">
 
-									<h:outputText value="Desconto" />
-									<p:inputText value="#{productView.activeProduct.desconto}" required="true" />
+								<h:outputText value="Prateleiras:" />
+								<p:inputText value="#{productView.activeProduct.pratIdLoc}" />
 
-									<h:outputText value="IVA" />
-									<p:inputText value="#{productView.activeProduct.iva}" required="true" />
+								<h:outputText value="Desconto" />
+								<p:inputText value="#{productView.activeProduct.desconto}"
+									required="true" />
 
-									<h:outputText value="Preço" />
-									<p:inputText value="#{productView.activeProduct.pvp}" required="true" /> 
-									
-								</p:panelGrid>
-									<p:commandButton value="Submit" action="#{productView.editProduct()}" update="ProductDisplay" /> 
-							</p:outputPanel> 
-						</p:dialog>	
+								<h:outputText value="IVA" />
+								<p:inputText value="#{productView.activeProduct.iva}"
+									required="true" />
+
+								<h:outputText value="Preço" />
+								<p:inputText value="#{productView.activeProduct.pvp}"
+									required="true" />
+
+							</p:panelGrid>
+							<br/>
+							<p:commandButton value="Submit" action="#{productView.editProduct()}" update="ProductDisplay" />
+						</p:outputPanel>
+					</p:dialog>
 				</h:form>
 
 			</div>
