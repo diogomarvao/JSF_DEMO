@@ -14,13 +14,11 @@ import io.altar.jeeproject.view.ProductView;
 @Named
 @SessionScoped
 public class Product extends Entity implements Serializable{
-//	ProductView view = new ProductView();
 	
 	private Integer pratIdLoc;
 	private double desconto;
 	private int iva;
 	private double pvp;
-//	private ProductRepository productRepository;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -54,15 +52,6 @@ public class Product extends Entity implements Serializable{
 		
 	}
 	
-// adicionar a parteleira criada ao repositorio productRepository
-
-//	public void addProd(Integer pratIdLoc, double desconto, int iva, double pvp) {
-//		this.pratIdLoc = pratIdLoc;
-//		this.desconto = desconto;
-//		this.iva = iva;
-//		this.pvp = pvp;
-//		//view.getProducts().add(this);
-//}
 	
 }
 		

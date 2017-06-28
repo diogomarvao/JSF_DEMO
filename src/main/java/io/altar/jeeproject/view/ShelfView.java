@@ -22,51 +22,10 @@ public class ShelfView implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
 	
-//	public int getCodigo() {
-//		return codigo;
-//	}
-//
-//	public void setCodigo(int codigo) {
-//		this.codigo = codigo;
-//	}
-//
-//	public int getCapacidade() {
-//		return capacidade;
-//	}
-//
-//	public void setCapacidade(int capacidade) {
-//		this.capacidade = capacidade;
-//	}
-//
-//	public Integer getProduto() {
-//		return produto;
-//	}
-//
-//	public void setProduto(Integer produto) {
-//		this.produto = produto;
-//	}
-//
-//	public double getPreco() {
-//		return preco;
-//	}
-//
-//	public void setPreco(double preco) {
-//		this.preco = preco;
-//	}
-//
-//	private int codigo;
-//	private int capacidade;
-//	private Integer produto;
-//	private double preco;
 	
 	@Inject
 	private ShelfService shelfService;
 	
-//	private static List <Shelf> shelfs = new ArrayList<>();
-//	
-//	static{
-//		shelfs.add(new Shelf());
-//	}
 	
 	Shelf shelf = new Shelf();
 	
@@ -92,17 +51,6 @@ public class ShelfView implements Serializable{
 		this.shelf = shelf;
 	}
 
-
-	
-	
-	
-//	public List<Shelf> getShelfs() {
-//		return shelfs;
-//	}
-//
-//	public void setShelfs(List<Shelf> shelfs) {
-//		this.shelfs = shelfs;
-//	}
 
 		
 }

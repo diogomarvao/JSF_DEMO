@@ -50,9 +50,6 @@ public class EntityRepository<E extends Entity> {
 			return entityList.get(id);
 		}
 		
-//		public Collection<Entity> teste(){
-//			return entityList.values();
-//		}
 
 // delete do elemento
 	public void removElem(int id){

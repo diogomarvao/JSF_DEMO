@@ -8,7 +8,7 @@ import io.altar.jeeproject.repository.ProductRepository;
 
 @Named("productService")
 @RequestScoped
-public class ProductService {
+public class ProductService extends EntityService<Product>{
 
 	private ProductRepository productRepository = ProductRepository.getInstance();
 	
@@ -21,4 +21,11 @@ public class ProductService {
 		
 		return productRepository;
 	}
+	
+	public void editProduct(Product product){
+		
+			productRepository.alterProdElement(product.getId(), product.getPratIdLoc(), product.getDesconto(), product.getIva(), product.getPvp());
+	}
+	
+	
 }

@@ -22,24 +22,25 @@
 
 			<div id="produtos">
 				<h1>Produtos</h1>
-
+			<h:form>
 				<!-- 		1.1 - tabela dos produtos -->
-			<p:dataTable value="#{productView.getProductList()}" var="newproduct"
-					border="1">
-
-					<p:column headerText="Id">#{newproduct.id}</p:column>
-					<p:column headerText="Nome">nome</p:column>
-					<p:column headerText="Prateleiras">#{newproduct.pratIdLoc}</p:column>
-					<p:column headerText="Discount">#{newproduct.desconto}</p:column>
-					<p:column headerText="IVA">#{newproduct.iva}</p:column>
-					<p:column headerText="PVP">#{newproduct.pvp}</p:column>
-					<p:column headerText="Opcoes">
-						<button>Editar</button>
-						<button>Ver Detalhes</button>
-						<button>Eliminar</button>
-					</p:column>
-
-			</p:dataTable>
+				<p:dataTable id="ProductDisplay" value="#{productView.getProductList()}" var="newproduct"
+						border="1">
+	
+						<p:column headerText="Id">#{newproduct.id}</p:column>
+						<p:column headerText="Nome">nome</p:column>
+						<p:column headerText="Prateleiras">#{newproduct.pratIdLoc}</p:column>
+						<p:column headerText="Discount">#{newproduct.desconto}</p:column>
+						<p:column headerText="IVA">#{newproduct.iva}</p:column>
+						<p:column headerText="PVP">#{newproduct.pvp}</p:column>
+						<p:column headerText="Opcoes">
+							<h:commandButton update="editProduct" value="Edit" onclick="PF('prodEdit').show();"/>
+							<button>Ver Detalhes</button>
+							<h:commandButton value="Eliminar" action="#{productView.delProduct(newproduct)}" update="ProductDisplay"/>
+						</p:column>
+	
+				</p:dataTable>
+			</h:form>
 
 				<!-- 	1.2 - Inserir detalhes do produto -->
 
@@ -67,6 +68,29 @@
 							<h:commandButton value="Save" action="#{productView.addProd}" />
 							<h:commandButton value="Cancel" />
 	
+				</h:form>
+				
+				<h:form>
+						<p:dialog header="Editar Produto" widgetVar="prodEdit">
+						<p:outputPanel id="editProduct" style="text-align:center;">
+								<p:panelGrid columns="2">
+									
+									<h:outputText value="Prateleiras:" />
+									<p:inputText value="#{productView.activeProduct.pratIdLoc}" />
+
+									<h:outputText value="Desconto" />
+									<p:inputText value="#{productView.activeProduct.desconto}" required="true" />
+
+									<h:outputText value="IVA" />
+									<p:inputText value="#{productView.activeProduct.iva}" required="true" />
+
+									<h:outputText value="Preço" />
+									<p:inputText value="#{productView.activeProduct.pvp}" required="true" /> 
+									
+								</p:panelGrid>
+									<p:commandButton value="Submit" action="#{productView.editProduct()}" update="ProductDisplay" /> 
+							</p:outputPanel> 
+						</p:dialog>	
 				</h:form>
 
 			</div>

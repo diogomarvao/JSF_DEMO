@@ -19,52 +19,22 @@ import io.altar.jeeproject.service.ProductService;
 public class ProductView implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	private Product activeProduct;
 	
-//	public Integer getPratIdLoc() {
-//		return pratIdLoc;
-//	}
-//
-//	public void setPratIdLoc( Integer pratIdLoc) {
-//		this.pratIdLoc = pratIdLoc;
-//	}
-//
-//	public double getDesconto() {
-//		return desconto;
-//	}
-//
-//	public void setDesconto(double desconto) {
-//		this.desconto = desconto;
-//	}
-//
-//	public int getIva() {
-//		return iva;
-//	}
-//
-//	public void setIva(int iva) {
-//		this.iva = iva;
-//	}
-//
-//	public double getPvp() {
-//		return pvp;
-//	}
-//
-//	public void setPvp(double pvp) {
-//		this.pvp = pvp;
-//	}
-//
-//	Integer pratIdLoc;
-//	double desconto;
-//	int iva;
-//	double pvp;
 	
+	
+	public void setActiveProduct(Product activeProduct) {
+		this.activeProduct = activeProduct;
+	}
+
+
+	public Product getActiveProduct() {
+		return activeProduct;
+	}
+
 	@Inject
 	private ProductService productService;
 	
-//	private static List <Product> products = new ArrayList<>();
-	
-//	static{
-//		products.add(new Product());
-//	}
 	Product product = new Product();
 	
 	
@@ -73,8 +43,6 @@ public class ProductView implements Serializable{
 	
 	public String addProd(){
 		productService.addProduct(product);
-//		product.addProd(this.pratIdLoc,this.desconto,this.iva,this.pvp);
-//		products.add(product);
 		return null;
 	}
 	
@@ -86,26 +54,29 @@ public class ProductView implements Serializable{
 		return new ArrayList<Product> ((Collection<Product>)productService.getProductRepository().values());
 	}
 	
-	
-
-	
 	public Product getProduct() {
 		return product;
 	}
 
 	public void setProduct(Product product) {
 		this.product = product;
-	}
-//
-//	public List<Product> getProducts() {
-//		return products;
-//	}
-//
-//	public void setProducts(List<Product> products) {
-//		this.products = products;
-//	}
-//	
-//			
+	}		
 	
+	
+//	editar produtos
+	
+	public String editProduct(Product product){
+		
+			productService.editProduct(product);
+		
+		return null;
+	}
+	
+//	eliminar produtos
+	
+	public String delProduct(Product product){
+			productService.delEntity(productService.getProductRepository(), product);
+		return null;
+	}
 	
 }

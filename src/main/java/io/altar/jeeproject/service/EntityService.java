@@ -10,6 +10,8 @@ import io.altar.jeeproject.repository.EntityRepository;
 
 public class EntityService <E extends Entity> {
 	
-
+	public void delEntity(EntityRepository<E> entityList, E entity){
+		entityList.removElem(entity.getId());
+	}
 	
 }
