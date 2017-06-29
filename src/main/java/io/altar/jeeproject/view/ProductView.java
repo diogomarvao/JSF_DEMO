@@ -21,8 +21,7 @@ public class ProductView implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Product activeProduct = new Product();
 	
-	
-	
+
 	public void setActiveProduct(Product activeProduct) {
 		this.activeProduct = activeProduct;
 	}
@@ -64,9 +63,9 @@ public class ProductView implements Serializable{
 	
 //	editar produtos
 	
-	public void editProduct(Product product){
-		
-			productService.editProduct(product);
+	public void editProduct(){
+//			setActiveProduct(product);
+			productService.editProduct(activeProduct);
 
 	}
 	
@@ -79,7 +78,7 @@ public class ProductView implements Serializable{
 //	
 //	passar elementos do produto activo
 	public void passActiveProduct(Product product){
-		setActiveProduct(product);
+
 
 	}
 }

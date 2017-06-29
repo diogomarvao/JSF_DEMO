@@ -17,7 +17,9 @@
 	<ui:composition template="CommonLayout.xhtml">
 		<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
 		<ui:define name="content">
-
+		<h:form>
+		<h:commandButton class="add"  value="Productos" action="product" />
+</h:form>
 			<div id="prateleiras">
 				<!-- Prateleiras
 		1 - Menu principal produto -->
@@ -70,7 +72,7 @@
 
 				<h:form>
 
-					<p:dialog header="Nova Prateleira" widgetVar="shelfNew"
+					<p:dialog class="diag" header="Nova Prateleira" widgetVar="shelfNew"
 						resizable="false">
 						<p:outputPanel id="newShelf" style="text-align:center;">
 
@@ -96,7 +98,7 @@
 				</h:form>
 
 				<h:form id="EditarShelf">
-					<p:dialog header="Editar Prateleira" widgetVar="shelfEdit"
+					<p:dialog class="diag" header="Editar Prateleira" widgetVar="shelfEdit"
 						resizable="false">
 						<!-- painel -->
 						<p:outputPanel id="editShelf" style="text-align:center;">
