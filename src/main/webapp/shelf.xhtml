@@ -23,7 +23,7 @@
 		1 - Menu principal produto -->
 				<h1 class="title">Prateleiras</h1>
 				
-				<div class="center"></div>
+				<div class="center">
 					<h:commandButton class="add" update="newShelf"
 							value="Addicionar Nova Prateleira" onclick="PF('shelfNew').show();" />
 				</div>
@@ -58,7 +58,7 @@
 				
 				<h:form>
 					
-					<p:dialog header="Nova Prateleira" widgetVar="shelfNew">
+					<p:dialog header="Nova Prateleira" widgetVar="shelfNew" resizable="false">
 						<p:outputPanel id="newShelf" style="text-align:center;">
 
 						
@@ -84,7 +84,7 @@
 				</h:form>
 
 				<h:form>
-					<p:dialog header="Editar Prateleira" widgetVar="shelfEdit">
+					<p:dialog header="Editar Prateleira" widgetVar="shelfEdit" resizable="false">
 						<p:outputPanel id="editShelf" style="text-align:center;">
 							<p:panelGrid columns="2">
 

@@ -60,7 +60,7 @@
 										#{newproduct.pvp}
 										</div>
 							</p:column>
-							<p:column class="header" headerText="Opcoes">
+							<p:column class="header">
 
 								<!--  <p:commandButton update="j_idt50:editProduct" value="Editar"
 								oncomplete="PF('prodEdit').show();">-->
@@ -84,7 +84,7 @@
 
 				<h:form>
 
-					<p:dialog header="Novo Produto" widgetVar="prodNew">
+					<p:dialog header="Novo Produto" widgetVar="prodNew" resizable="false">
 						<p:outputPanel id="newProduct" style="text-align:center;">
 
 
@@ -113,7 +113,7 @@
 				</h:form>
 
 				<h:form>
-					<p:dialog header="Editar Produto" widgetVar="prodEdit">
+					<p:dialog header="Editar Produto" widgetVar="prodEdit" resizable="false">
 						<p:outputPanel id="editProduct" style="text-align:center;">
 							<p:panelGrid columns="2">
 
