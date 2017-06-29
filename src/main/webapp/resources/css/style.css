@@ -1,20 +1,23 @@
-html, body{
+html, body {
 	background: #87CEFA; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#87CEFA, #B0E0E6) no-repeat; /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#87CEFA, #B0E0E6) no-repeat; /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#87CEFA, #B0E0E6) no-repeat; /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#87CEFA, #B0E0E6) no-repeat; /* Standard syntax */
-	height:100%;
+	background: -webkit-linear-gradient(#87CEFA, #B0E0E6) no-repeat;
+	/* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#87CEFA, #B0E0E6) no-repeat;
+	/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#87CEFA, #B0E0E6) no-repeat;
+	/* For Firefox 3.6 to 15 */
+	background: linear-gradient(#87CEFA, #B0E0E6) no-repeat;
+	/* Standard syntax */
+	height: 100%;
 }
 
-
-.center{
+.center {
 	text-align: center;
 }
 
 /* <!-- Header --> */
 .top {
-/* 	position: fixed;
+	/* 	position: fixed;
 	width: 100%;
 	background-color: #00008B;
 	overflow: hidden;
@@ -26,73 +29,79 @@ html, body{
 	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 20px;
 	color: white; */
+	background-color: #4169E1;
+	top: 0;
+	margin-top:0%;
+	
 }
 
 /* <!-- header --> */
-
-.header{
-	margin-top: 0%;
-	cursor: hand;
-	border:solid;
+.header {
+	margin-top: 0%; cursor : hand;
+	border: solid;
 	background-color: #4169E1;
 	border-color: #4169E1;
-	font-size:15px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: center;
 	color: white;
 	margin-bottom: 0%;
-}
-	
-.tablecont{
 	cursor: hand;
-	border:solid;
+}
+
+.tablecont {
+	cursor: hand;
+	border: solid;
 	background-color: #FFEFD5;
 	border-color: #FFEFD5;
-	font-size:15px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: center;
 	color: black;
 	margin-bottom: 0%;
-
-}		
+}
 
 /* <!-- Buttons --> */
-
-.add{
+.add {
 	cursor: hand;
-	border:solid;
+	border: solid;
 	background-color: #4682B4;
 	border-color: #4682B4;
-	border-radius:150px;
-	font-size:15px;
+	border-radius: 150px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: center;
 	color: white;
 	margin-bottom: 0%;
 	box-shadow: 2px 2px 2px #000000;
 }
-	
 
-.bottab{
+.bottab {
 	cursor: hand;
-	border:solid;
+	border: solid;
 	background-color: #4169E1;
 	border-color: #4169E1;
-	border-radius:150px;
-	font-size:15px;
+	border-radius: 150px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: center;
 	color: white;
 	box-shadow: 2px 2px 2px #000000;
-	
 }
 
-
-
-
+.topbut {
+	cursor: hand;
+	border: solid;
+	background-color: #4169E1;
+	border-color: #4169E1;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+}
 
 /* <!-- Title --> */
-.title{
+.title {
 	width: 100%;
 	background-color: #00008B;
 	overflow: hidden;
@@ -106,9 +115,9 @@ html, body{
 	color: white;
 }
 
-
 /* <!-- Footer --> */
-.footer { position:fixed;
+.footer {
+	position: fixed;
 	width: 100%;
 	bottom: 0;
 	left: 0;

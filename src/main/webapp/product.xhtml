@@ -36,37 +36,26 @@
 						var="newproduct" border="1">
 						<div class="header">
 							<p:column class="header" headerText="Id">
-							<div class="tablecont">
-										#{newproduct.id}
-										</div>
+								<div class="tablecont">#{newproduct.id}</div>
 							</p:column>
 							<p:column class="header" headerText="Prateleiras">
-										<div class="tablecont">
-										#{newproduct.pratIdLoc}
-										</div>
+								<div class="tablecont">#{newproduct.pratIdLoc}</div>
 							</p:column>
 							<p:column class="header" headerText="Discount">
-							<div class="tablecont">
-										#{newproduct.desconto}
-										</div>
+								<div class="tablecont">#{newproduct.desconto}</div>
 							</p:column>
 							<p:column class="header" headerText="IVA">
-							<div class="tablecont">
-										#{newproduct.iva}
-										</div>
+								<div class="tablecont">#{newproduct.iva}</div>
 							</p:column>
 							<p:column class="header" headerText="PVP">
-							<div class="tablecont">
-										#{newproduct.pvp}
-										</div>
+								<div class="tablecont">#{newproduct.pvp}</div>
 							</p:column>
 							<p:column class="header">
 
-								<!--  <p:commandButton update="j_idt50:editProduct" value="Editar"
-								oncomplete="PF('prodEdit').show();">-->
-
-								<p:commandButton value="Editar" class="bottab"
+								<p:commandButton update=":EditarProd:editProduct" value="Editar" class="bottab"
 									oncomplete="PF('prodEdit').show();">
+
+
 									<f:setPropertyActionListener value="#{newproduct}"
 										target="#{productView.activeProduct}" />
 								</p:commandButton>
@@ -84,7 +73,8 @@
 
 				<h:form>
 
-					<p:dialog header="Novo Produto" widgetVar="prodNew" resizable="false">
+					<p:dialog header="Novo Produto" widgetVar="prodNew"
+						resizable="false">
 						<p:outputPanel id="newProduct" style="text-align:center;">
 
 
@@ -112,8 +102,10 @@
 
 				</h:form>
 
-				<h:form>
-					<p:dialog header="Editar Produto" widgetVar="prodEdit" resizable="false">
+				<h:form id="EditarProd" >
+					<p:dialog header="Editar Produto" widgetVar="prodEdit"
+						resizable="false">
+						<!-- painel -->
 						<p:outputPanel id="editProduct" style="text-align:center;">
 							<p:panelGrid columns="2">
 

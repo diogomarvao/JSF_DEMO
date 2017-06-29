@@ -11,22 +11,26 @@
 <body>
 	<ui:composition>
 		<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
-		<h:form>
-			<p:growl id="messages" />
+		
+			<h:form>
+				<p:growl id="messages" />
 
-			<p:menubar header="Product And Shelf Data Base">
-
-				
+				<p:menubar class="top" header="Product And Shelf Data Base">
 
 
-				<f:facet name="options">
+					
+
+
+					<f:facet name="options">
+						<p:inputText style="margin-right:10px" placeholder="Search" />
+						<h:outputText value="User" style="margin-right:10px" />
+						<p:commandButton class="topbut" type="button" value="Logout"
+							icon="ui-icon-extlink" />
+					</f:facet>
+				</p:menubar>
 			
-					<p:inputText style="margin-right:10px" placeholder="Search" />
-					<h:outputText value="User" style="margin-right:10px"/>
-					<p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
-				</f:facet>
-			</p:menubar>
-		</h:form>
+			</h:form>
+
 
 	</ui:composition>
 </body>
