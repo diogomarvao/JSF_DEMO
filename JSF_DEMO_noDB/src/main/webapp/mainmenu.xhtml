@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Product db</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+
+
+	<!-- Produto-->
+
+	<ui:composition template="CommonLayout.xhtml">
+		<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+		<ui:define name="content">
+
+
+
+			<!-- Menu
+	0 - Menu principal  -->
+			<div class="mainMenu" id="homepage">
+				<h1>Bem vindo ao Productdb</h1>
+
+				<h:form>
+
+				
+
+						<p>Por favor selecione uma das seguintes opcões</p>
+						<br />
+						
+							<h:commandButton class="add"  value="Productos" action="product" />
+							<h:commandButton class="add"  value="Prateleiras" action="shelf" />
+							
+				</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
