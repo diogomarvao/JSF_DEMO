@@ -49,7 +49,7 @@ public class ProductView implements Serializable{
 	
 
 	public List<Product> getProductList(){
-		return new ArrayList<Product> ((Collection<Product>)productService.getProductRepository().values());
+		return productService.showEntities(productService.getProductRepository());
 	}
 	
 	public Product getProduct() {
@@ -77,8 +77,8 @@ public class ProductView implements Serializable{
 	}
 //	
 //	passar elementos do produto activo
-	public void passActiveProduct(Product product){
-
-
-	}
+//	public void passActiveProduct(Product product){
+//
+//
+//	}
 }

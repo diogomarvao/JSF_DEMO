@@ -1,13 +1,14 @@
 package io.altar.jeeproject.model;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Scanner;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-import io.altar.jeeproject.repository.EntityRepository;
-
+@MappedSuperclass
 public class Entity {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 //get id produtos

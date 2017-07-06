@@ -1,21 +1,24 @@
 package io.altar.jeeproject.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
-import io.altar.jeeproject.repository.ProductRepository;
-import io.altar.jeeproject.view.ProductView;
-
-
+@javax.persistence.Entity
+@Table(name="PRODUCTS")
 public class Product extends Entity implements Serializable{
 	
+	@Column(name="Prateleiras")
 	private Integer pratIdLoc;
+	
+	@Column(name="Desconto")
 	private double desconto;
+	
+	@Column(name="IVA")
 	private int iva;
+	
+	@Column(name="PVP")
 	private double pvp;
 	
 	private static final long serialVersionUID = 1L;

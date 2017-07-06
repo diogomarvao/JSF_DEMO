@@ -10,17 +10,23 @@ import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
 import io.altar.jeeproject.model.Shelf;
+import io.altar.jeeproject.repository.EntityRepository;
+import io.altar.jeeproject.repository.ProductRepository;
 import io.altar.jeeproject.repository.ShelfRepository;
 
 @Named("shelfService")
 @RequestScoped
 public class ShelfService extends EntityService<Shelf> {
 	
-	private ShelfRepository shelfRepository = ShelfRepository.getInstance();
-
+	private ShelfRepository shelfRepository = new ShelfRepository();
+	
+	public List<Shelf> showEntities(ShelfRepository shelfList){
+		List<Shelf> list = shelfList.getDbShelf();
+		return list;
+	}
 	
 	public void addShelf(Shelf shelf){
-		shelfRepository.addToList(shelf);
+		shelfRepository.addToDb(shelf);
 	}
 	
 	public ShelfRepository getShelfRepository(){
@@ -29,6 +35,6 @@ public class ShelfService extends EntityService<Shelf> {
 	
 	public void editShelf(Shelf shelf){
 		
-		shelfRepository.alterShelfElement(shelf.getId(), shelf.getCod(), shelf.getCap(), shelf.getProd(), shelf.getPreco());
+		shelfRepository.alterInDb(shelf);
 	}
 }

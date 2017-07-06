@@ -49,7 +49,7 @@ public class ShelfView implements Serializable{
 //  shelf na tabela
 
 	public List<Shelf> getShelfList() {
-		return new ArrayList<Shelf> ((Collection<Shelf>)shelfService.getShelfRepository().values());
+		return shelfService.showEntities(shelfService.getShelfRepository());
 	}
 
 	public Shelf getShelf() {
