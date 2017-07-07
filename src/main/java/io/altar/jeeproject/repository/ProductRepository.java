@@ -30,26 +30,5 @@ public class ProductRepository extends EntityRepository<Product>{
 		Product activeProduct = getDb().find(Product.class, product.getId());
 		getDb().remove(activeProduct);
 	}
-	
-	
-	
-//private static final ProductRepository INSTANCE = new ProductRepository();
-//	
-//	private ProductRepository(){}
-//	
-//	public static ProductRepository getInstance(){
-//		return INSTANCE;
-//	}
-//	
-//	
-////	editar valores
-//	
-//	public void alterProdElement(Integer id, Integer pratIdLoc, double desconto, int iva, double pvp) {
-//		((Product) get(id)).setPratIdLoc(pratIdLoc);
-//		((Product) get(id)).setDesconto(desconto);
-//		((Product) get(id)).setIva(iva);
-//		((Product) get(id)).setPvp(pvp);
-//	}	
-	
 
 }

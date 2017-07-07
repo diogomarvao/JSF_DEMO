@@ -72,12 +72,6 @@ public class ShelfView implements Serializable{
 		shelfService.delEntity(shelfService.getShelfRepository(), shelf);
 	}
 	
-	
-//	passar elementos da shelf activa
-//	public void passActiveShelf(Shelf shelf){
-//		setActiveShelf(shelf);
-//	}
-	
 }
 
 	
