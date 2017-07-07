@@ -3,6 +3,7 @@ package io.altar.jeeproject.service;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
@@ -12,10 +13,11 @@ import io.altar.jeeproject.repository.ProductRepository;
 @RequestScoped
 public class ProductService extends EntityService<Product>{
 
-	private ProductRepository productRepository = new ProductRepository();
+	@Inject
+	private ProductRepository productRepository;
 	
-	public List<Product> showEntities(ProductRepository productList){
-		List<Product> list = productList.getDbProduct();
+	public List<Product> showEntities(ProductRepository productRepository){
+		List<Product> list = productRepository.getDbProduct();
 		return list;
 	}
 	
@@ -23,16 +25,14 @@ public class ProductService extends EntityService<Product>{
 		productRepository.addToDb(product);
 	}
 	
-	
-	public ProductRepository getProductRepository(){
-		
-		return productRepository;
-	}
-	
 	public void editProduct(Product product){
-		
 			productRepository.alterInDb(product);
 	}
 	
+	
+	//getter productRepository
+	public ProductRepository getProductRepository(){	
+		return productRepository;
+	}
 	
 }

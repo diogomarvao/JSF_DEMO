@@ -23,14 +23,14 @@ public class ShelfView implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Shelf activeShelf = new Shelf();
 	
-	
-	
-	public Shelf getActiveShelf() {
-		return activeShelf;
-	}
 
 	public void setActiveShelf(Shelf activeShelf) {
 		this.activeShelf = activeShelf;
+	}
+
+	
+	public Shelf getActiveShelf() {
+		return activeShelf;
 	}
 
 	@Inject
@@ -62,8 +62,8 @@ public class ShelfView implements Serializable{
 
 //	editar shelfs
 		
-	public void editShelf(Shelf shelf){
-		shelfService.editShelf(shelf);
+	public void editShelf(){
+		shelfService.editShelf(activeShelf);
 	}
 	
 //	eliminar shelfs
@@ -74,9 +74,9 @@ public class ShelfView implements Serializable{
 	
 	
 //	passar elementos da shelf activa
-	public void passActiveShelf(Shelf shelf){
-		setActiveShelf(shelf);
-	}
+//	public void passActiveShelf(Shelf shelf){
+//		setActiveShelf(shelf);
+//	}
 	
 }
 

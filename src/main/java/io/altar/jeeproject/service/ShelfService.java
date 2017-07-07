@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.altar.jeeproject.model.Product;
@@ -18,23 +19,25 @@ import io.altar.jeeproject.repository.ShelfRepository;
 @RequestScoped
 public class ShelfService extends EntityService<Shelf> {
 	
-	private ShelfRepository shelfRepository = new ShelfRepository();
+	@Inject
+	private ShelfRepository shelfRepository;
 	
-	public List<Shelf> showEntities(ShelfRepository shelfList){
-		List<Shelf> list = shelfList.getDbShelf();
+	public List<Shelf> showEntities(ShelfRepository shelfRepository){
+		List<Shelf> list = shelfRepository.getDbShelf();
 		return list;
 	}
 	
 	public void addShelf(Shelf shelf){
 		shelfRepository.addToDb(shelf);
 	}
+
+	public void editShelf(Shelf shelf){
+		shelfRepository.alterInDb(shelf);
+	}
 	
+	//getter shelfRepository
 	public ShelfRepository getShelfRepository(){
 		return shelfRepository;
 	}
 	
-	public void editShelf(Shelf shelf){
-		
-		shelfRepository.alterInDb(shelf);
-	}
 }

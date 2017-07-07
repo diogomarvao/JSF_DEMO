@@ -19,9 +19,6 @@ public class EntityRepository<E extends Entity> {
 	@PersistenceContext(unitName="database")
 	private EntityManager em;
 	
-//	@Resource
-//    private UserTransaction userTransaction;
-	
 	public EntityManager getDb(){
 		return em;
 	}

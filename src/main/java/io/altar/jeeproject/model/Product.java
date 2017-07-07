@@ -23,31 +23,45 @@ public class Product extends Entity implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Integer getPratIdLoc() {
-		return pratIdLoc;
-	}
+//setters das variaveis	
+	
 	public void setPratIdLoc(Integer pratIdLoc) {
 		this.pratIdLoc = pratIdLoc;
 	}
-	public double getDesconto() {
-		return desconto;
-	}
+	
 	public void setDesconto(double desconto) {
 		this.desconto = desconto;
 	}
-	public int getIva() {
-		return iva;
-	}
+	
 	public void setIva(int iva) {
 		this.iva = iva;
 	}
+	
+	public void setPvp(double pvp) {
+		this.pvp = pvp;
+	}
+	
+//getters das variaveis
+	
+	public Integer getPratIdLoc() {
+		return pratIdLoc;
+	}
+
+	public double getDesconto() {
+		return desconto;
+	}
+
+	public int getIva() {
+		return iva;
+	}
+
 	public double getPvp() {
 		return pvp;
 	}
-	public void setPvp(double pvp) {
-		this.pvp = pvp;
-	}	
 	
+	public Product(){
+		
+	}
 
 	
 	

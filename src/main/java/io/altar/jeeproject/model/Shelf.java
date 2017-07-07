@@ -71,7 +71,7 @@ public class Shelf extends Entity implements Serializable {
 			return this.preco;
 		}
 		
-		@Inject
+		
 		public Shelf(){
 			
 		}

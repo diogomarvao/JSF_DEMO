@@ -73,7 +73,6 @@ public class ProductView implements Serializable{
 	
 	public void delProduct(Product product){
 			productService.delEntity(productService.getProductRepository(), product);
-
 	}
 //	
 //	passar elementos do produto activo
