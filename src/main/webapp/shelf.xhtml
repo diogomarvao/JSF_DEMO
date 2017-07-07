@@ -44,24 +44,26 @@
 							<p:column class="header" headerText="Codigo">
 								<div class="tablecont">#{newshelf.cod}</div>
 							</p:column>
-							<p:column class="header" headerText="Discount">
+							<p:column class="header" headerText="Capacidade">
 								<div class="tablecont">#{newshelf.cap}</div>
 							</p:column>
-							<p:column class="header" headerText="IVA">
+							<p:column class="header" headerText="Produto">
 								<div class="tablecont">#{newshelf.prod}</div>
 							</p:column>
-							<p:column class="header" headerText="PVP">
+							<p:column class="header" headerText="Aluguer">
 								<div class="tablecont">#{newshelf.preco}</div>
 							</p:column>
 							<p:column class="header" headerText="Opcoes">
 
 								<p:commandButton update=":EditarShelf:editShelf" value="Editar"
 									class="bottab" oncomplete="PF('shelfEdit').show();">
+									
 									<f:setPropertyActionListener value="#{newshelf}"
 										target="#{shelfView.activeShelf}" />
 								</p:commandButton>
 								<h:commandButton value="Eliminar" class="bottab"
-									action="#{shelfView.delShelf(newshelf)}" update="ShelfDisplay" />
+									action="#{shelfView.delShelf(newshelf)}" 
+									update="ShelfDisplay" />
 
 							</p:column>
 						</div>
@@ -104,6 +106,9 @@
 						<p:outputPanel id="editShelf" style="text-align:center;">
 							<p:panelGrid columns="2">
 
+								<h:outputText value="Id:" />
+								<h:inputText value="#{shelfView.activeShelf.id}"/>
+
 								<h:outputText value="Localizacao:" />
 								<p:inputText value="#{shelfView.activeShelf.cod}" />
 
@@ -122,7 +127,7 @@
 							</p:panelGrid>
 							<br />
 							<p:commandButton value="Submit"
-								action="#{shelfView.editShelf(activeShelf)}"
+								action="#{shelfView.editShelf()}"
 								update="ShelfDisplay" />
 						</p:outputPanel>
 					</p:dialog>
