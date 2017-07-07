@@ -22,10 +22,4 @@ public class EntityService <E extends Entity> {
 		entityList.alterInDb(entity);
 	}
 	
-//	public void delEntity(EntityRepository<E> entityList, E entity){
-//		entityList.removElem(entity.getId());
-//	}
-	
-	
-	
 }
